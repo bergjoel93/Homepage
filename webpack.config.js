@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -10,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
     clean: true,
-    assetModuleFilename: "[name][ext]",
+    assetModuleFilename: "assets/[name][ext]",
   },
   devtool: "source-map",
   devServer: {
@@ -47,9 +48,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack App",
+      title: "Joel Scott",
       filename: "index.html",
       template: "src/template.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./src/assets", to: "assets" }, // Copy icons folder to the dist directory
+      ],
     }),
   ],
 };

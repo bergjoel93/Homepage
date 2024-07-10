@@ -4,6 +4,172 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
   </head>
-  <body></body>
+  <body>
+    <nav>
+      <div class="nav-name-container">Joel Scott</div>
+      <div class="nav-buttons-container">
+        <button id="nav-home-button">Home</button>
+        <button id="nav-about-button">About</button>
+        <button id="nav-project-button">Projects</button>
+        <button id="nav-contact-button">Contact</button>
+      </div>
+      <div class="filler-div"></div>
+    </nav>
+
+    <section id="section-home">
+      <!-- Home section goes here -->
+      <div class="home-main-container">
+        <div class="home-img-container">
+          <img
+            class="headshot"
+            src="./assets/personal/headshot.jpg"
+            alt="Joel's headshot"
+          />
+        </div>
+        <div class="home-details-container">
+          <div class="home-text-container">
+            <h2>Hi, my name is</h2>
+            <h1>Joel Scott Berg</h1>
+            <h3>UX Designer and Developer</h3>
+          </div>
+
+          <div class="home-buttons-container">
+            <button class="download-resume">Donwnload Resume</button>
+            <button class="contact-me">Contact Me</button>
+          </div>
+          <div class="home-web-links-container">
+            <a
+              href="https://github.com/bergjoel93?tab=repositories"
+              class="github"
+              ><img
+                src="./assets/icons/github-142-svgrepo-com.svg"
+                alt="Github Logo"
+                width="48px"
+            /></a>
+            <a
+              class="linkedin-icon"
+              href="www.linkedin.com/in/joel-berg-aabaa2b5"
+              class="linkedin"
+              ><img
+                src="./assets/icons/linkedin-svgrepo-com.svg"
+                alt="LinkedIn Logo"
+                width="64px"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-about">
+      <!-- About section goes here -->
+      <div class="about-container">
+        <div class="about-menu-container">
+          <button class="about-about-me">About Me</button>
+
+          <button class="about-skills">Skills</button>
+
+          <button class="about-certificates">Certificates</button>
+
+          <button class="about-other">Other</button>
+        </div>
+        <div class="about-info-container">
+          <!-- Inject html for about section here -->
+          <div class="about-me-container">
+            <h2>A little bit about me</h2>
+            <p>
+              My name is Joel, and I'm an educated/self-taught web developer
+              with a passion for user-experience, design, and back-end coding. I
+              am passionate about creating websites with crisp, clean designs
+              that prioritize user-freindliness. A great website offers an
+              intuitive and seamless experience, focusing on what the user needs
+              to control and ensuring they can do so with minimal effort. I
+              enjoy the challenge of solving problems to enhance the user
+              interaction and satisfaction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-projects">
+      <!-- Project cards go here -->
+      <h2 class="projects-title">My Projects</h2>
+      <div class="project-card-container">
+        <img src="" alt="" class="project-screenshot" />
+        <div class="project-info-container">
+          <div class="project-into-title-container">
+            <h3 class="project-name">Project Name</h3>
+            <div class="project-links">
+              <div class="view-code">
+                <img
+                  src="./assets/icons/github-142-svgrepo-com.svg"
+                  alt="Go to code"
+                />
+              </div>
+              <div class="view-live">
+                <img
+                  src="./assets/icons/open-in-new-svgrepo-com.svg"
+                  alt="Go to live website"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="project-description-container">
+            <p class="project-description">
+              A short description detailing the project including the purpose
+              and what you gained from doing this project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-contact">
+      <!-- Contact stuff goes here -->
+      <div class="contact-main-container">
+        <h2 class="contact-title">Contact Me</h2>
+        <div class="contact-second-container">
+          <div class="phone-container">
+            <img
+              src="./assets/icons/call-chat-rounded-svgrepo-com.svg"
+              alt="My phone number icon"
+            />
+            <h4 class="phone-number">+1 (385) 445-1454</h4>
+          </div>
+        </div>
+
+        <div class="location-container">
+          <img
+            src="./assets/icons/home-1-svgrepo-com.svg"
+            alt="My location icon"
+          />
+          <h4 class="location">Murray, UT, United States</h4>
+        </div>
+
+        <div class="email-container">
+          <img
+            src="./assets/icons/mailbox-svgrepo-com.svg"
+            alt="My email icon"
+          />
+          <h4 class="email">jberg33.student@gmail.com</h4>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <h5 class="copyright">© Copyright by Joel Berg - 2024</h5>
+      <button class="back-to-top-button">
+        Back to Top
+        <img
+          src="./assets/icons/up-arrow-svgrepo-com.svg"
+          alt="Up arrow icon"
+        />
+      </button>
+    </footer>
+  </body>
 </html>
