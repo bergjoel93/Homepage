@@ -21,6 +21,7 @@
       </div>
       <div class="filler-div"></div>
     </nav>
+    <div class="clipped-background"></div>
 
     <section id="section-home">
       <!-- Home section goes here -->
@@ -83,14 +84,14 @@
           <div class="about-me-container">
             <h2>A little bit about me</h2>
             <p>
-              My name is Joel, and I'm an educated/self-taught web developer
-              with a passion for user-experience, design, and back-end coding. I
-              am passionate about creating websites with crisp, clean designs
-              that prioritize user-freindliness. A great website offers an
-              intuitive and seamless experience, focusing on what the user needs
-              to control and ensuring they can do so with minimal effort. I
-              enjoy the challenge of solving problems to enhance the user
-              interaction and satisfaction.
+              I'm an educated/self-taught web developer with a passion for
+              user-experience, design, and back-end coding. I am passionate
+              about creating websites with crisp, clean designs that prioritize
+              user-freindliness. A great website offers an intuitive and
+              seamless experience, focusing on what the user needs to control
+              and ensuring they can do so with minimal effort. I enjoy the
+              challenge of solving problems to enhance the user interaction and
+              satisfaction.
             </p>
           </div>
         </div>
@@ -100,38 +101,20 @@
     <section id="section-projects">
       <!-- Project cards go here -->
       <h2 class="projects-title">My Projects</h2>
-      <div class="project-card-container">
-        <img src="" alt="" class="project-screenshot" />
-        <div class="project-info-container">
-          <div class="project-into-title-container">
-            <h3 class="project-name">Project Name</h3>
-            <div class="project-links">
-              <div class="view-code">
-                <img
-                  src="./assets/icons/github-142-svgrepo-com.svg"
-                  alt="Go to code"
-                />
-              </div>
-              <div class="view-live">
-                <img
-                  src="./assets/icons/open-in-new-svgrepo-com.svg"
-                  alt="Go to live website"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="project-description-container">
-            <p class="project-description">
-              A short description detailing the project including the purpose
-              and what you gained from doing this project.
-            </p>
-          </div>
+      <div class="picture-frame">
+        <div class="project-card-container"></div>
+        <div class="carousel-arrows">
+          <button class="carousel-button prev" data-carousel-button="prev">
+            ⇦
+          </button>
+          <button class="carousel-button next" data-carousel-button="next">
+            ⇨
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="section-contact">
-      <!-- Contact stuff goes here -->
+    <footer>
       <div class="contact-main-container">
         <h2 class="contact-title">Contact Me</h2>
         <div class="contact-second-container">
@@ -160,16 +143,16 @@
           <h4 class="email">jberg33.student@gmail.com</h4>
         </div>
       </div>
-    </section>
-    <footer>
-      <h5 class="copyright">© Copyright by Joel Berg - 2024</h5>
-      <button class="back-to-top-button">
-        Back to Top
-        <img
-          src="./assets/icons/up-arrow-svgrepo-com.svg"
-          alt="Up arrow icon"
-        />
-      </button>
+      <div class="lowest">
+        <h5 class="copyright">© Copyright by Joel Berg - 2024</h5>
+        <button class="back-to-top-button">
+          Back to Top
+          <img
+            src="./assets/icons/up-arrow-svgrepo-com.svg"
+            alt="Up arrow icon"
+          />
+        </button>
+      </div>
     </footer>
   </body>
 </html>
