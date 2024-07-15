@@ -41,6 +41,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   --font-cursive: "Playwrite CA", cursive;
   --font-roboto: "Roboto Mono", monospace;
   --font-strong: "Arsenal SC", sans-serif;
+  /*Sizes*/
+  --max-width: 960px;
 }
 
 html {
@@ -49,12 +51,25 @@ html {
 
 body {
   font-family: var(--font-roboto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 section {
   height: 100vh;
-  padding: 2rem;
   box-sizing: border-box;
+  max-width: var(--max-width);
+  width: 100%;
+}
+
+.clipped-background {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(8, 145, 178);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
 }
 
 /* Navigation Bar */
@@ -107,12 +122,20 @@ nav .nav-buttons-container button:hover {
 section#section-home {
   display: flex;
   justify-content: center;
-  padding-top: 12rem;
+  align-items: center;
+}
+
+.headshot,
+.home-details-container {
+  box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);
+  -webkit-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);
+  -moz-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);
 }
 
 .home-main-container {
+  width: 100%;
   display: flex;
-  gap: 24px;
+  justify-content: space-between;
 }
 
 .home-details-container {
@@ -216,14 +239,11 @@ section#section-home {
 
 /*About SEction contet */
 #section-about {
-  margin: 3rem;
   display: flex;
   justify-content: center;
 }
 
 .about-container {
-  width: 75%;
-  height: 85%;
   box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
   -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
   -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
@@ -296,10 +316,107 @@ section#section-home {
 }
 
 /* Projects Section  */
+#section-projects {
+  margin-top: 5rem;
+}
+
+.project-card-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 1fr);
+  gap: 16px;
+}
+
+.picture-frame {
+  border: solid green 3px;
+  padding: 24px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-arrows {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.carousel-button {
+  font-size: 4rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  padding: 0 0.5rem;
+  padding-bottom: 0.4rem;
+}
+
+.carousel-nav-dots {
+  margin: 16px;
+  padding: 1rem;
+  width: 80%;
+  align-self: center;
+  left: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+}
+
 /* Project Cards */
+.project-card {
+  height: 480px;
+  background-color: var(--about-color-0);
+  padding: 16px;
+  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info-title-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 6px;
+}
+
+.project-name,
+.project-links {
+  padding: 4px;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.project-description {
+  font-size: 14px;
+}
+
 .view-code img,
 .view-live img {
-  width: 18px;
+  width: 20px;
+  overflow: visible;
 }
 
 /* Contact Stuff */
@@ -311,7 +428,7 @@ section#section-home {
 
 .back-to-top-button img {
   width: 16px;
-}`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CA:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap\");\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n:root {\n  /* colors */\n  --background-color-01: #f1f1f1;\n  --background-color-02: #7dd3fc;\n  --about-color-0: #e0f2fe;\n  --about-color-1: #e2e8f0;\n  --about-color-2: #ede9fe;\n  --about-color-3: #ccfbf1;\n  --button-color-1: #7dd3fc;\n  /* fonts */\n  --font-cursive: \"Playwrite CA\", cursive;\n  --font-roboto: \"Roboto Mono\", monospace;\n  --font-strong: \"Arsenal SC\", sans-serif;\n}\n\nhtml {\n  background-color: var(--background-color-01);\n}\n\nbody {\n  font-family: var(--font-roboto);\n}\n\nsection {\n  height: 100vh;\n  padding: 2rem;\n  box-sizing: border-box;\n}\n\n/* Navigation Bar */\nnav {\n  width: 100%;\n  min-height: 72px;\n  position: fixed;\n  top: 0;\n  z-index: 1000;\n  background-color: var(--background-color-01);\n  display: grid;\n  grid-template-columns: 1fr 8fr 1fr;\n  justify-content: space-between;\n  align-items: center;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\nnav .nav-name-container {\n  /* give it a fancy font */\n  margin: 1rem;\n  font-family: \"Playwrite CA\", cursive;\n}\n\nnav .nav-buttons-container {\n  margin: 1rem;\n  justify-self: center;\n  display: flex;\n  justify-content: center;\n  flex-grow: 1;\n  gap: 80px;\n}\n\nnav .nav-buttons-container button {\n  padding: 1rem;\n  cursor: pointer;\n  border-style: none;\n  background-color: var(--background-color-01);\n  font-size: 1.5rem;\n  font-family: var(--font-strong);\n  transition: transform 0.2s;\n}\n\nnav .nav-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n/* Home Section  */\n\nsection#section-home {\n  display: flex;\n  justify-content: center;\n  padding-top: 12rem;\n}\n\n.home-main-container {\n  display: flex;\n  gap: 24px;\n}\n\n.home-details-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 400px;\n  height: 560px;\n  background-color: var(--background-color-02);\n  border-radius: 25%;\n  padding: 1rem;\n}\n\n.headshot {\n  width: 400px;\n  border-radius: 25%;\n}\n\n.home-text-container {\n  padding: 0 0 18px 36px;\n}\n\n.home-text-container h1 {\n  font-family: var(--font-strong);\n  font-size: 2.5rem;\n}\n\n.home-buttons-container {\n  margin: 8px 8px;\n  display: flex;\n  gap: 8px;\n}\n\n.home-buttons-container button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\n.home-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n.home-web-links-container {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n  align-items: center;\n}\n\n.linkedin-icon {\n}\n\n/* About Section Menu */\n\n.about-menu-container {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n}\n\n.about-menu-container button {\n  font-size: 28px;\n  font-family: var(--font-roboto);\n  border-style: none;\n  padding: 0.5rem;\n  border-right: solid 1px var(--background-color-01);\n  cursor: pointer;\n  transform-origin: bottom;\n  transition: transform ease 0.3s;\n}\n\n.about-menu-container button:hover {\n  transform: scaleY(1.4);\n}\n\n.about-menu-container button:nth-child(1) {\n  background-color: var(--about-color-0);\n}\n\n.about-menu-container button:nth-child(2) {\n  background-color: var(--about-color-1);\n}\n\n.about-menu-container button:nth-child(3) {\n  background-color: var(--about-color-2);\n}\n\n.about-menu-container button:nth-child(4) {\n  background-color: var(--about-color-3);\n}\n\n.about-menu-container button:last-child {\n  border-right: none;\n}\n\n/*About SEction contet */\n\n#section-about {\n  margin: 3rem;\n  display: flex;\n  justify-content: center;\n}\n\n.about-container {\n  width: 75%;\n  height: 85%;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  background-color: var(--about-color-0);\n  display: flex;\n  flex-direction: column;\n}\n\n.about-info-container {\n  flex: 1;\n  display: flex;\n  padding: 12px 48px 12px 48px;\n  overflow-y: auto;\n}\n\n/* About Me Section */\n.about-me-container {\n  padding: 1.5rem;\n}\n\n.about-me-container h2 {\n  margin-bottom: 0.3rem;\n}\n\n/* Skills Section */\n.skills-container {\n  flex: 1;\n  display: grid;\n  grid-template-rows: repeat(5, 1fr);\n}\n\n.skills-card {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  min-width: 90%;\n  border-bottom: 0.2px solid black;\n  padding: 12px;\n}\n\n.skills-card .column-1 h3 {\n  font-size: 32px;\n  font-family: var(--font-strong);\n  font-weight: lighter;\n}\n\n.skills-card .column-2 {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 24px;\n  flex-wrap: wrap;\n}\n\n.skills-card .column-2 img {\n  width: 64px;\n}\n\n/*  message box */\n.message-box {\n  position: absolute;\n  padding: 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  color: white;\n  border-radius: 5px;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 0.3s ease, transform 0.5s ease;\n  transform: translateY(-10px);\n}\n\n/* Projects Section  */\n\n/* Project Cards */\n\n.view-code img,\n.view-live img {\n  width: 18px;\n}\n\n/* Contact Stuff */\n\n.phone-container img,\n.location-container img,\n.email-container img {\n  width: 48px;\n}\n\n.back-to-top-button img {\n  width: 16px;\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AACA;EACE,SAAA;EACA,UAAA;EACA,sBAAA;AACF;;AAEA;EACE,WAAA;EACA,8BAAA;EACA,8BAAA;EACA,wBAAA;EACA,wBAAA;EACA,wBAAA;EACA,wBAAA;EACA,yBAAA;EACA,UAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EAEA,QAAA;EACA,kBAAA;AAAF;;AAGA;EACE,4CAAA;AAAF;;AAGA;EACE,+BAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;AAAF;;AAGA;EACE,aAAA;EACA,sBAAA;EACA,2BAAA;EACA,WAAA;AAAF;;AAGA;EACE,kBAAA;EACA,WAAA;EACA,WAAA;EACA,aAAA;EACA,kCAAA;EACA,iDAAA;AAAF;;AAGA,mBAAA;AACA;EACE,WAAA;EACA,gBAAA;EACA,eAAA;EACA,MAAA;EACA,aAAA;EACA,4CAAA;EACA,aAAA;EACA,kCAAA;EACA,8BAAA;EACA,mBAAA;EACA,mDAAA;EACA,2DAAA;EACA,wDAAA;AAAF;;AAGA;EACE,yBAAA;EACA,YAAA;EACA,oCAAA;AAAF;;AAGA;EACE,YAAA;EACA,oBAAA;EACA,aAAA;EACA,uBAAA;EACA,YAAA;EACA,SAAA;AAAF;;AAGA;EACE,aAAA;EACA,eAAA;EACA,kBAAA;EACA,4CAAA;EACA,iBAAA;EACA,+BAAA;EACA,0BAAA;AAAF;;AAGA;EACE,2BAAA;AAAF;;AAGA,kBAAA;AAEA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AADF;;AAIA;;EAEE,kDAAA;EACA,0DAAA;EACA,uDAAA;AADF;;AAIA;EACE,WAAA;EACA,aAAA;EACA,8BAAA;AADF;;AAIA;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,YAAA;EACA,aAAA;EACA,4CAAA;EACA,kBAAA;EACA,aAAA;AADF;;AAIA;EACE,YAAA;EACA,kBAAA;AADF;;AAIA;EACE,sBAAA;AADF;;AAIA;EACE,+BAAA;EACA,iBAAA;AADF;;AAIA;EACE,eAAA;EACA,aAAA;EACA,QAAA;AADF;;AAIA;EACE,oDAAA;EACA,YAAA;EACA,kBAAA;EACA,eAAA;EACA,mBAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,eAAA;EACA,wCAAA;EACA,0BAAA;EACA,aAAA;AADF;;AAIA;EACE,2BAAA;AADF;;AAIA;EACE,aAAA;EACA,uBAAA;EACA,SAAA;EACA,mBAAA;AADF;;AAOA,uBAAA;AAEA;EACE,aAAA;EACA,qCAAA;AALF;;AAQA;EACE,eAAA;EACA,+BAAA;EACA,kBAAA;EACA,eAAA;EACA,kDAAA;EACA,eAAA;EACA,wBAAA;EACA,+BAAA;AALF;;AAQA;EACE,sBAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,kBAAA;AALF;;AAQA,wBAAA;AAEA;EACE,aAAA;EACA,uBAAA;AANF;;AASA;EACE,mDAAA;EACA,2DAAA;EACA,wDAAA;EACA,sCAAA;EACA,aAAA;EACA,sBAAA;AANF;;AASA;EACE,OAAA;EACA,aAAA;EACA,4BAAA;EACA,gBAAA;AANF;;AASA,qBAAA;AACA;EACE,eAAA;AANF;;AASA;EACE,qBAAA;AANF;;AASA,mBAAA;AACA;EACE,OAAA;EACA,aAAA;EACA,kCAAA;AANF;;AASA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,cAAA;EACA,gCAAA;EACA,aAAA;AANF;;AASA;EACE,eAAA;EACA,+BAAA;EACA,oBAAA;AANF;;AASA;EACE,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,SAAA;EACA,eAAA;AANF;;AASA;EACE,WAAA;AANF;;AASA,iBAAA;AACA;EACE,kBAAA;EACA,aAAA;EACA,oCAAA;EACA,YAAA;EACA,kBAAA;EACA,oBAAA;EACA,UAAA;EACA,kDAAA;EACA,4BAAA;AANF;;AASA,sBAAA;AACA;EACE,gBAAA;AANF;;AASA;EACE,aAAA;EACA,sBAAA;EACA,qCAAA;EACA,SAAA;AANF;;AASA;EACE,uBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,sBAAA;AANF;;AASA;EACE,WAAA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,aAAA;EACA,mBAAA;EACA,8BAAA;EACA,UAAA;AANF;;AAQA;EACE,eAAA;EACA,gBAAA;EACA,YAAA;EACA,+BAAA;EACA,eAAA;EACA,oCAAA;EACA,sBAAA;EACA,iBAAA;EACA,sBAAA;AALF;;AAQA;EACE,YAAA;EACA,aAAA;EACA,UAAA;EACA,kBAAA;EACA,UAAA;EACA,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,oCAAA;EACA,qBAAA;AALF;;AAQA,kBAAA;AACA;EACE,aAAA;EACA,sCAAA;EACA,aAAA;EACA,mDAAA;EACA,2DAAA;EACA,wDAAA;EACA,aAAA;EACA,sBAAA;AALF;;AAWA;EACE,WAAA;EACA,YAAA;EACA,iBAAA;AARF;;AAWA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,YAAA;AARF;;AAWA;;EAEE,YAAA;AARF;;AAWA;EACE,aAAA;EACA,SAAA;EACA,yBAAA;AARF;;AAWA;EACE,eAAA;AARF;;AAeA;;EAEE,WAAA;EACA,iBAAA;AAZF;;AAeA,kBAAA;AAEA;;;EAGE,WAAA;AAbF;;AAgBA;EACE,WAAA;AAbF","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CA:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap\");\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n:root {\n  /* colors */\n  --background-color-01: #f1f1f1;\n  --background-color-02: #7dd3fc;\n  --about-color-0: #e0f2fe;\n  --about-color-1: #e2e8f0;\n  --about-color-2: #ede9fe;\n  --about-color-3: #ccfbf1;\n  --button-color-1: #7dd3fc;\n  /* fonts */\n  --font-cursive: \"Playwrite CA\", cursive;\n  --font-roboto: \"Roboto Mono\", monospace;\n  --font-strong: \"Arsenal SC\", sans-serif;\n\n  /*Sizes*/\n  --max-width: 960px;\n}\n\nhtml {\n  background-color: var(--background-color-01);\n}\n\nbody {\n  font-family: var(--font-roboto);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\nsection {\n  height: 100vh;\n  box-sizing: border-box;\n  max-width: var(--max-width);\n  width: 100%;\n}\n\n.clipped-background {\n  position: absolute;\n  z-index: -1;\n  width: 100%;\n  height: 100vh;\n  background-color: rgb(8 145 178);\n  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);\n}\n\n/* Navigation Bar */\nnav {\n  width: 100%;\n  min-height: 72px;\n  position: fixed;\n  top: 0;\n  z-index: 1000;\n  background-color: var(--background-color-01);\n  display: grid;\n  grid-template-columns: 1fr 8fr 1fr;\n  justify-content: space-between;\n  align-items: center;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\nnav .nav-name-container {\n  /* give it a fancy font */\n  margin: 1rem;\n  font-family: \"Playwrite CA\", cursive;\n}\n\nnav .nav-buttons-container {\n  margin: 1rem;\n  justify-self: center;\n  display: flex;\n  justify-content: center;\n  flex-grow: 1;\n  gap: 80px;\n}\n\nnav .nav-buttons-container button {\n  padding: 1rem;\n  cursor: pointer;\n  border-style: none;\n  background-color: var(--background-color-01);\n  font-size: 1.5rem;\n  font-family: var(--font-strong);\n  transition: transform 0.2s;\n}\n\nnav .nav-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n/* Home Section  */\n\nsection#section-home {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.headshot,\n.home-details-container {\n  box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -webkit-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -moz-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n}\n\n.home-main-container {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n}\n\n.home-details-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 400px;\n  height: 560px;\n  background-color: var(--background-color-02);\n  border-radius: 25%;\n  padding: 1rem;\n}\n\n.headshot {\n  width: 400px;\n  border-radius: 25%;\n}\n\n.home-text-container {\n  padding: 0 0 18px 36px;\n}\n\n.home-text-container h1 {\n  font-family: var(--font-strong);\n  font-size: 2.5rem;\n}\n\n.home-buttons-container {\n  margin: 8px 8px;\n  display: flex;\n  gap: 8px;\n}\n\n.home-buttons-container button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\n.home-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n.home-web-links-container {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n  align-items: center;\n}\n\n.linkedin-icon {\n}\n\n/* About Section Menu */\n\n.about-menu-container {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n}\n\n.about-menu-container button {\n  font-size: 28px;\n  font-family: var(--font-roboto);\n  border-style: none;\n  padding: 0.5rem;\n  border-right: solid 1px var(--background-color-01);\n  cursor: pointer;\n  transform-origin: bottom;\n  transition: transform ease 0.3s;\n}\n\n.about-menu-container button:hover {\n  transform: scaleY(1.4);\n}\n\n.about-menu-container button:nth-child(1) {\n  background-color: var(--about-color-0);\n}\n\n.about-menu-container button:nth-child(2) {\n  background-color: var(--about-color-1);\n}\n\n.about-menu-container button:nth-child(3) {\n  background-color: var(--about-color-2);\n}\n\n.about-menu-container button:nth-child(4) {\n  background-color: var(--about-color-3);\n}\n\n.about-menu-container button:last-child {\n  border-right: none;\n}\n\n/*About SEction contet */\n\n#section-about {\n  display: flex;\n  justify-content: center;\n}\n\n.about-container {\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  background-color: var(--about-color-0);\n  display: flex;\n  flex-direction: column;\n}\n\n.about-info-container {\n  flex: 1;\n  display: flex;\n  padding: 12px 48px 12px 48px;\n  overflow-y: auto;\n}\n\n/* About Me Section */\n.about-me-container {\n  padding: 1.5rem;\n}\n\n.about-me-container h2 {\n  margin-bottom: 0.3rem;\n}\n\n/* Skills Section */\n.skills-container {\n  flex: 1;\n  display: grid;\n  grid-template-rows: repeat(5, 1fr);\n}\n\n.skills-card {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  min-width: 90%;\n  border-bottom: 0.2px solid black;\n  padding: 12px;\n}\n\n.skills-card .column-1 h3 {\n  font-size: 32px;\n  font-family: var(--font-strong);\n  font-weight: lighter;\n}\n\n.skills-card .column-2 {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 24px;\n  flex-wrap: wrap;\n}\n\n.skills-card .column-2 img {\n  width: 64px;\n}\n\n/*  message box */\n.message-box {\n  position: absolute;\n  padding: 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  color: white;\n  border-radius: 5px;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 0.3s ease, transform 0.5s ease;\n  transform: translateY(-10px);\n}\n\n/* Projects Section  */\n#section-projects {\n  margin-top: 5rem;\n}\n\n.project-card-container {\n  display: grid;\n  grid-auto-flow: column;\n  grid-auto-columns: minmax(280px, 1fr);\n  gap: 16px;\n}\n\n.picture-frame {\n  border: solid green 3px;\n  padding: 24px;\n  overflow-x: scroll;\n  overflow-y: hidden;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n}\n\n.carousel-arrows {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  right: 0px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  z-index: 1;\n}\n.carousel-button {\n  font-size: 4rem;\n  background: none;\n  border: none;\n  color: rgba(255, 255, 255, 0.5);\n  cursor: pointer;\n  background-color: rgba(0, 0, 0, 0.1);\n  border-radius: 0.25rem;\n  padding: 0 0.5rem;\n  padding-bottom: 0.4rem;\n}\n\n.carousel-nav-dots {\n  margin: 16px;\n  padding: 1rem;\n  width: 80%;\n  align-self: center;\n  left: 64px;\n  display: flex;\n  align-items: center;\n  justify-content: space-evenly;\n  background-color: rgba(0, 0, 0, 0.4);\n  border-radius: 0.5rem;\n}\n\n/* Project Cards */\n.project-card {\n  height: 480px;\n  background-color: var(--about-color-0);\n  padding: 16px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  display: flex;\n  flex-direction: column;\n}\n\n.project-card-img-container {\n}\n\n.project-card img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n\n.project-info-title-container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  padding: 6px;\n}\n\n.project-name,\n.project-links {\n  padding: 4px;\n}\n\n.project-links {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n\n.project-description {\n  font-size: 14px;\n}\n\n.view-code,\n.view-live {\n}\n\n.view-code img,\n.view-live img {\n  width: 20px;\n  overflow: visible;\n}\n\n/* Contact Stuff */\n\n.phone-container img,\n.location-container img,\n.email-container img {\n  width: 48px;\n}\n\n.back-to-top-button img {\n  width: 16px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1025,6 +1142,235 @@ class AboutMe {
 }
 
 
+/***/ }),
+
+/***/ "./src/modules/Projects.mjs":
+/*!**********************************!*\
+  !*** ./src/modules/Projects.mjs ***!
+  \**********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   projects: () => (/* binding */ projects)
+/* harmony export */ });
+/**
+ * This module contains the Projects object.
+ */
+
+const projects = {
+  Battleship: {
+    name: "Battleship",
+    img: "./assets/screenshots/Battleship.png",
+    description:
+      "The purpose of this project was to practice Test Driven Development using Jest. Tests were written for each feature first before implementing them. This project enhanced my skills in OOP, event handling, and creating an interactive web application.",
+    repo: "https://github.com/bergjoel93/Battleship",
+    live: "https://bergjoel93.github.io/Battleship/",
+    for: "The Odin Project",
+    learned: "Test-Driven-Development",
+  },
+  WeatherApp: {
+    name: "Weather App",
+    img: "./assets/screenshots/WeatherApp.png",
+    description:
+      "This is an app to show you current weather conditions and a 2 day forecast. The data comes from a weather API. The purpose of this project is to practice integrating external API's into a web application to handle asynchronouse operations using promises or async/await.",
+    repo: "https://github.com/bergjoel93/",
+    live: "https://bergjoel93.github.io/Weather-App/",
+    for: "The Odin Project",
+    learned: "Retrieveing Data From API, Async Functions ",
+  },
+  FormValidationPractice: {
+    name: "Form Validation Practice",
+    img: "./assets/screenshots/FormPractice.png",
+    description:
+      "This was a personal project that I did to help me practice real-time form validation. I made sure I also gave it a nice look because, why not?",
+    repo: "https://github.com/bergjoel93/form-validation-practice",
+    live: "https://bergjoel93.github.io/form-validation-practice",
+    for: "",
+    learned: "",
+  },
+  Carousel: {
+    name: "Drop Down/Carousel Practice",
+    img: "./assets/screenshots/Carousel.png",
+    description:
+      "This project helped me practice dynamic user interface interactions. It's not very stylish, but it's a good example of a drop-down menu (top left corner) and an image carousel. ",
+    repo: "https://github.com/bergjoel93/drop-down-and-carousel-assignment",
+    live: "https://bergjoel93.github.io/drop-down-and-carousel-assignment",
+    for: "",
+    learned: "",
+  },
+  DatePractice: {
+    name: "Date Practice",
+    img: "./assets/screenshots/DatePractice.png",
+    description:
+      "This was a personal project to help me practice using JavaScript Date objects. In the previous project, 'To-Do list', I was struggling with dates because of time-zone issues. So I did a quick project to test using timestamps as a way to store dates, which were later parsed into date-strings.",
+    repo: "https://github.com/bergjoel93/Date-Practice",
+    live: "https://bergjoel93.github.io/Date-Practice",
+    for: "",
+    learned: "",
+  },
+  Taskr: {
+    name: "To-Do List",
+    img: "./assets/screenshots/Taskr.png",
+    description:
+      "This purpose of this project was to practice using ES6 modules, Classes, and WebPack to create a functional and user-friendly todo list for organizing tasks into projects, setting priorities, and managing deadlines. This one was a doozy but it made me so much better as a programme in the end. ",
+    repo: "https://github.com/bergjoel93/Taskr",
+    live: "https://bergjoel93.github.io/Taskr",
+    for: "",
+    learned: "",
+  },
+  RestaurantPage: {
+    name: "Restaurant Page",
+    img: "./assets/screenshots/Restaurant.png",
+    description:
+      "This project was my first introduction to diving my code into ES6 modules. This project also used WebPack. The content was injected using JavaScript when the user clicked a menu button. ",
+    repo: "https://github.com/bergjoel93/Restaurant-Page",
+    live: "https://bergjoel93.github.io/Restaurant-Page",
+    for: "",
+    learned: "",
+  },
+  TicTacToe: {
+    name: "Tic-Tac-Toe",
+    img: "./assets/screenshots/TicTacToe.png",
+    description:
+      " The purpose of this project is to practice organizing code using objects and factories, ensuring minimal global variables and a clean module pattern. By completing this project, I gained experience in structuring JavaScript code to manage game state, player interactions, and game flow control efficiently.",
+    repo: "https://github.com/bergjoel93/Tic_Tac_Toe",
+    live: "https://bergjoel93.github.io/Tic_Tac_Toe",
+    for: "",
+    learned: "",
+  },
+
+  Library: {
+    name: "",
+    img: "./assets/screenshots/Library.png",
+    description:
+      "The Library project from The Odin Project involves creating a small web application to manage a collection of books, extending the 'Book' example from a previous lesson. The purpose of this project is to practice object-oriented programming and DOM manipulation by allowing users to add, display, and manage books in a library.",
+    repo: "https://github.com/bergjoel93/library",
+    live: "https://bergjoel93.github.io/library",
+    for: "",
+    learned: "",
+  },
+
+  AdminDashboard: {
+    name: "",
+    img: "./assets/screenshots/AdminDashboard.png",
+    description:
+      "The Admin Dashboard project from The Odin Project focuses on building a full dashboard layout using CSS Grid for the majority of the layout work. The purpose of this project is to apply and solidify knowledge of CSS Grid in a real-world scenario.",
+    repo: "https://github.com/bergjoel93/",
+    live: "https://bergjoel93.github.io/",
+    for: "",
+    learned: "",
+  },
+  SignUpForm: {
+    name: "Sign Up Form",
+    img: "./assets/screenshots/SignUp.png",
+    description:
+      "The Sign-up Form project from The Odin Project is designed to apply and consolidate the HTML and CSS concepts learned in previous lessons by creating a sign-up form for an imaginary service. The purpose of this project is to practice structuring a form, applying external assets, and using advanced CSS techniques for styling. ",
+    repo: "https://github.com/bergjoel93/sign-up-form",
+    live: "https://bergjoel93.github.io/sign-up-form",
+    for: "",
+    learned: "",
+  },
+  Calculator: {
+    name: "Calculator",
+    img: "./assets/screenshots/Calculator.png",
+    description:
+      "The Calculator project from The Odin Project is a comprehensive exercise designed to consolidate the JavaScript, HTML, and CSS skills learned throughout the course. The purpose of this project is to create a functional on-screen calculator that performs basic arithmetic operations. ",
+    repo: "https://github.com/bergjoel93/Calculator",
+    live: "https://bergjoel93.github.io/Calculator",
+    for: "",
+    learned: "",
+  },
+  EtchASketch: {
+    name: "Etch-A-Sketch",
+    img: "./assets/screenshots/EtchaSketch.png",
+    description:
+      "The Etch-a-Sketch project from The Odin Project is a creative exercise designed to strengthen DOM manipulation skills using JavaScript and Flexbox for layout. The purpose of this project is to build a browser-based sketchpad that allows users to draw by hovering over a grid of squares. ",
+    repo: "https://github.com/bergjoel93/odin-project-Etch-a-Sketch",
+    live: "https://bergjoel93.github.io/odin-project-Etch-a-Sketch",
+    for: "",
+    learned: "",
+  },
+  LandingPage: {
+    name: "Landing Page",
+    img: "./assets/screenshots/OdinLandingPage.png",
+    description:
+      "The Landing Page project from The Odin Project involves creating a complete web page based on provided design images, focusing on HTML and CSS skills. The purpose of this project is to practice translating a visual design into a functional web page, honing layout and styling skills.",
+    repo: "https://github.com/bergjoel93/odin-landing-page",
+    live: "https://bergjoel93.github.io/odin-landing-page",
+    for: "",
+    learned: "",
+  },
+};
+
+
+
+
+/***/ }),
+
+/***/ "./src/modules/RenderProjects.mjs":
+/*!****************************************!*\
+  !*** ./src/modules/RenderProjects.mjs ***!
+  \****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ RenderProjects)
+/* harmony export */ });
+/* harmony import */ var _Projects_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Projects.mjs */ "./src/modules/Projects.mjs");
+
+/**
+ * The purpose of this module is to render all of the project cards with their respective handlers (if needed)
+ */
+
+class RenderProjects {
+  constructor() {
+    this.projects = _Projects_mjs__WEBPACK_IMPORTED_MODULE_0__.projects;
+    this.cardContainer = document.querySelector(".project-card-container");
+    this.renderCards();
+  }
+  // Renders the cards by appending them to the project-card-container
+  renderCards() {
+    Object.keys(this.projects).forEach((key) => {
+      const project = _Projects_mjs__WEBPACK_IMPORTED_MODULE_0__.projects[key];
+      this.cardContainer.appendChild(this.generateCard(project));
+    });
+  }
+
+  generateCard(project) {
+    let card = document.createElement("div");
+    card.className = "project-card";
+    card.innerHTML = `
+        <div class="project-card-img-container">
+        <img src="${project.img}" alt="${project.name} Screenshot" class="project-screenshot">
+        </div>
+
+        <div class="project-info-container">
+        <div class="project-info-title-container">
+            <h3 class="project-name">${project.name}</h3>
+            <div class="project-links">
+            <a class="view-code" href="${project.repo}">
+                <img src="./assets/icons/github-142-svgrepo-com.svg" alt="Go to code">
+            </a>
+            <a class="view-live" href="${project.live}">
+                <img src="./assets/icons/open-in-new-svgrepo-com.svg" alt="Go to live website">
+            </a>
+            </div>
+        </div>
+        <div class="project-description-container">
+            <p class="project-description">
+            ${project.description}
+            </p>
+        </div>
+        </div>
+
+    `;
+    return card;
+  }
+}
+
+
 /***/ })
 
 /******/ 	});
@@ -1109,140 +1455,15 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ "./src/styles/style.css");
 /* harmony import */ var _modules_HandleAboutMe_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/HandleAboutMe.mjs */ "./src/modules/HandleAboutMe.mjs");
+/* harmony import */ var _modules_RenderProjects_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/RenderProjects.mjs */ "./src/modules/RenderProjects.mjs");
+
 
 
 
 // work on about section.
 // When I click skills, the .about-me-container will clear and then the skills table will be inserted.
 const handleAboutMe = new _modules_HandleAboutMe_mjs__WEBPACK_IMPORTED_MODULE_1__["default"]();
-const projects = {
-  Battleship: {
-    name: "Battleship",
-    img: "./assets/screenshots/Battleship.png",
-    description: "The Battleship project from The Odin Project focuses on implementing the classic game Battleship using Test Driven Development (TDD). The purpose of the project is to practice TDD by writing tests for each feature before implementing it, thus ensuring that the code is robust and reliable. By completing this project, I gained a deeper understanding of TDD principles and improved my ability to isolate application functionality from DOM manipulation. The project involves creating classes or factories for Ships, Gameboards, and Players, each with specific methods to handle game logic such as placing ships, recording hits, and determining game outcomes. Players interact with the game through a user interface that allows them to take turns attacking each other's gameboards until one player's ships are all sunk. This project enhanced my skills in object-oriented programming, event handling, and creating interactive web applications.",
-    repo: "https://github.com/bergjoel93/Battleship",
-    live: "https://bergjoel93.github.io/Battleship/",
-    for: "The Odin Project",
-    learned: "Test-Driven-Development"
-  },
-  WeatherApp: {
-    name: "Weather App",
-    img: "./assets/screenshots/WeatherApp.png",
-    description: "The Weather App project from The Odin Project involves creating a web application that displays weather information for a specified location using data fetched from a weather API. The purpose of this project is to practice integrating external APIs into a web application and to handle asynchronous operations using promises or async/await. By completing this project, I gained experience in working with APIs, processing JSON data, and dynamically updating the DOM based on user input and API responses. The application allows users to input a location, fetches the relevant weather data, and displays it on the webpage. Additionally, the app features dynamic styling based on the weather conditions, enhancing the user experience. This project improved my skills in API handling, asynchronous JavaScript, and responsive web design.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/Weather-App/",
-    for: "The Odin Project",
-    learned: "Retrieveing Data From API, Async Functions "
-  },
-  FormValidationPractice: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  Carousel: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  DatePractice: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  Taskr: {
-    name: "To-Do List",
-    img: "./assets/screenshots/",
-    description: "The Todo List project from The Odin Project is designed to consolidate and demonstrate the various web development techniques learned so far. The purpose of the project is to create a functional and user-friendly todo list application that allows users to organize tasks into projects, set priorities, and manage deadlines. By completing this project, I gained practical experience in using JavaScript to create dynamic objects, manage application logic separately from the DOM, and implement data persistence using the Web Storage API. The application features the ability to create, edit, and delete todos, organize them into projects, and store data locally to retain user input across sessions. This project helped enhance my skills in object-oriented programming, modular code structure, and utilizing external libraries for date manipulation.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  RestaurantPage: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Restaurant Page project from The Odin Project focuses on practicing DOM manipulation by dynamically generating a restaurant homepage using JavaScript. The purpose of this project is to enhance proficiency in using JavaScript to create and manipulate HTML elements, as well as to integrate Webpack for efficient module bundling. By completing this project, I gained valuable experience in setting up and configuring Webpack, creating modular JavaScript code, and managing the dynamic content of a web page through event listeners. The application features a header with navigation buttons that allow users to switch between different tabs, such as Home, Menu, and Contact, each with its own content module. The project emphasizes the separation of concerns by keeping the application logic and DOM manipulation in separate modules, improving code organization and maintainability. This project significantly improved my skills in modern JavaScript development, module bundling, and dynamic webpage creation.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  TicTacToe: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Tic Tac Toe project from The Odin Project entails creating a browser-based version of the classic game, focusing on object-oriented programming and DOM manipulation. The purpose of this project is to practice organizing code using objects and factories, ensuring minimal global variables and a clean module pattern. By completing this project, I gained experience in structuring JavaScript code to manage game state, player interactions, and game flow control efficiently. The application includes a Gameboard object to store the game state, Player objects to manage player data, and a controller object to handle the game logic and DOM interactions. Features include player name input, gameboard rendering, player move validation, and game end conditions such as win or tie detection. This project enhanced my understanding of modular code design, event handling, and dynamic UI updates.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  Library: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Library project from The Odin Project involves creating a small web application to manage a collection of books, extending the 'Book' example from a previous lesson. The purpose of this project is to practice object-oriented programming and DOM manipulation by allowing users to add, display, and manage books in a library. By completing this project, I gained experience in creating and manipulating arrays to store book objects, dynamically generating HTML elements to display book information, and handling user input through forms. The application includes features such as adding new books via a form, displaying books in a table or card format, and providing buttons to remove books or toggle their read status. This project improved my skills in working with constructors, prototypes, event handling, and associating DOM elements with data attributes for efficient data management and user interaction.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  AdminDashboard: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Admin Dashboard project from The Odin Project focuses on building a full dashboard layout using CSS Grid for the majority of the layout work. The purpose of this project is to apply and solidify knowledge of CSS Grid in a real-world scenario. By completing this project, I gained practical experience in structuring complex layouts, utilizing grid nesting for different sections, and integrating assets such as icons and fonts. The project involves setting up a sidebar, header, and main content area, each containing nested grid layouts for elements like navigation, search bars, user information, and various dashboard widgets. This project also offered an opportunity to enhance design skills by experimenting with color palettes, fonts, and overall aesthetics. The final result is a functional and visually appealing admin dashboard that demonstrates proficiency in modern CSS techniques.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  SignUpForm: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Sign-up Form project from The Odin Project is designed to apply and consolidate the HTML and CSS concepts learned in previous lessons by creating a sign-up form for an imaginary service. The purpose of this project is to practice structuring a form, applying external assets, and using advanced CSS techniques for styling. By completing this project, I gained experience in setting up a project repository, organizing HTML and CSS files, and managing design assets such as background images and custom fonts. The form includes various input fields with specific styling for states like invalid and focused inputs, achieved using pseudo-classes. This project also involves adding a semi-transparent background for better text readability and ensuring the form's responsiveness across different desktop resolutions. Overall, this project enhanced my skills in creating aesthetically pleasing and functional web forms.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  Calculator: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Calculator project from The Odin Project is a comprehensive exercise designed to consolidate the JavaScript, HTML, and CSS skills learned throughout the course. The purpose of this project is to create a functional on-screen calculator that performs basic arithmetic operations. By completing this project, I gained experience in creating and testing mathematical functions, managing state within the application, and dynamically updating the user interface based on user interactions. The calculator features functions for addition, subtraction, multiplication, and division, as well as a display area and buttons for digits and operations. The project emphasizes avoiding the use of the dangerous `eval()` function by building custom functions to evaluate expressions. Additionally, it includes handling edge cases such as rounding long decimals, preventing multiple decimal points, and providing error messages for invalid operations like division by zero. This project enhanced my ability to structure complex JavaScript logic, create interactive web applications, and refine the user interface for a better user experience.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  EtchASketch: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Etch-a-Sketch project from The Odin Project is a creative exercise designed to strengthen DOM manipulation skills using JavaScript and Flexbox for layout. The purpose of this project is to build a browser-based sketchpad that allows users to draw by hovering over a grid of squares. By completing this project, I gained experience in dynamically creating and styling elements, setting up event listeners for user interactions, and using Flexbox to create a grid layout. The application features a grid of div elements that change color when hovered over, simulating the effect of drawing. Additionally, a button allows users to customize the grid size, prompting for a new number of squares per side and regenerating the grid accordingly. Extra credit challenges include randomizing square colors and implementing a progressive darkening effect. This project enhanced my proficiency in JavaScript event handling, dynamic content generation, and CSS layout techniques.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  },
-  LandingPage: {
-    name: "",
-    img: "./assets/screenshots/",
-    description: "The Landing Page project from The Odin Project involves creating a complete web page based on provided design images, focusing on HTML and CSS skills. The purpose of this project is to practice translating a visual design into a functional web page, honing layout and styling skills. By completing this project, I gained experience in setting up a project repository, structuring HTML content, and applying CSS to match the design specifications. The project is divided into manageable sections, such as the header, main content, and footer, which are styled individually to achieve the desired layout. Key tasks include using Flexbox for layout, selecting appropriate fonts, and integrating images. This project also emphasizes the importance of committing changes frequently and using external resources to solve challenges. The end result is a polished, visually appealing landing page that demonstrates proficiency in web design and development fundamentals.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: ""
-  }
-};
+const renderProjects = new _modules_RenderProjects_mjs__WEBPACK_IMPORTED_MODULE_2__["default"]();
 })();
 
 /******/ })()
