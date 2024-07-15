@@ -84,67 +84,67 @@ const projects = {
     learned: "",
   },
 
-  Library: {
-    name: "",
-    img: "./assets/screenshots/Library.png",
-    description:
-      "The Library project from The Odin Project involves creating a small web application to manage a collection of books, extending the 'Book' example from a previous lesson. The purpose of this project is to practice object-oriented programming and DOM manipulation by allowing users to add, display, and manage books in a library.",
-    repo: "https://github.com/bergjoel93/library",
-    live: "https://bergjoel93.github.io/library",
-    for: "",
-    learned: "",
-  },
+  // Library: {
+  //   name: "",
+  //   img: "./assets/screenshots/Library.png",
+  //   description:
+  //     "The Library project from The Odin Project involves creating a small web application to manage a collection of books, extending the 'Book' example from a previous lesson. The purpose of this project is to practice object-oriented programming and DOM manipulation by allowing users to add, display, and manage books in a library.",
+  //   repo: "https://github.com/bergjoel93/library",
+  //   live: "https://bergjoel93.github.io/library",
+  //   for: "",
+  //   learned: "",
+  // },
 
-  AdminDashboard: {
-    name: "",
-    img: "./assets/screenshots/AdminDashboard.png",
-    description:
-      "The Admin Dashboard project from The Odin Project focuses on building a full dashboard layout using CSS Grid for the majority of the layout work. The purpose of this project is to apply and solidify knowledge of CSS Grid in a real-world scenario.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: "",
-  },
-  SignUpForm: {
-    name: "Sign Up Form",
-    img: "./assets/screenshots/SignUp.png",
-    description:
-      "The Sign-up Form project from The Odin Project is designed to apply and consolidate the HTML and CSS concepts learned in previous lessons by creating a sign-up form for an imaginary service. The purpose of this project is to practice structuring a form, applying external assets, and using advanced CSS techniques for styling. ",
-    repo: "https://github.com/bergjoel93/sign-up-form",
-    live: "https://bergjoel93.github.io/sign-up-form",
-    for: "",
-    learned: "",
-  },
-  Calculator: {
-    name: "Calculator",
-    img: "./assets/screenshots/Calculator.png",
-    description:
-      "The Calculator project from The Odin Project is a comprehensive exercise designed to consolidate the JavaScript, HTML, and CSS skills learned throughout the course. The purpose of this project is to create a functional on-screen calculator that performs basic arithmetic operations. ",
-    repo: "https://github.com/bergjoel93/Calculator",
-    live: "https://bergjoel93.github.io/Calculator",
-    for: "",
-    learned: "",
-  },
-  EtchASketch: {
-    name: "Etch-A-Sketch",
-    img: "./assets/screenshots/EtchaSketch.png",
-    description:
-      "The Etch-a-Sketch project from The Odin Project is a creative exercise designed to strengthen DOM manipulation skills using JavaScript and Flexbox for layout. The purpose of this project is to build a browser-based sketchpad that allows users to draw by hovering over a grid of squares. ",
-    repo: "https://github.com/bergjoel93/odin-project-Etch-a-Sketch",
-    live: "https://bergjoel93.github.io/odin-project-Etch-a-Sketch",
-    for: "",
-    learned: "",
-  },
-  LandingPage: {
-    name: "Landing Page",
-    img: "./assets/screenshots/OdinLandingPage.png",
-    description:
-      "The Landing Page project from The Odin Project involves creating a complete web page based on provided design images, focusing on HTML and CSS skills. The purpose of this project is to practice translating a visual design into a functional web page, honing layout and styling skills.",
-    repo: "https://github.com/bergjoel93/odin-landing-page",
-    live: "https://bergjoel93.github.io/odin-landing-page",
-    for: "",
-    learned: "",
-  },
+  // AdminDashboard: {
+  //   name: "",
+  //   img: "./assets/screenshots/AdminDashboard.png",
+  //   description:
+  //     "The Admin Dashboard project from The Odin Project focuses on building a full dashboard layout using CSS Grid for the majority of the layout work. The purpose of this project is to apply and solidify knowledge of CSS Grid in a real-world scenario.",
+  //   repo: "https://github.com/bergjoel93/",
+  //   live: "https://bergjoel93.github.io/",
+  //   for: "",
+  //   learned: "",
+  // },
+  // SignUpForm: {
+  //   name: "Sign Up Form",
+  //   img: "./assets/screenshots/SignUp.png",
+  //   description:
+  //     "The Sign-up Form project from The Odin Project is designed to apply and consolidate the HTML and CSS concepts learned in previous lessons by creating a sign-up form for an imaginary service. The purpose of this project is to practice structuring a form, applying external assets, and using advanced CSS techniques for styling. ",
+  //   repo: "https://github.com/bergjoel93/sign-up-form",
+  //   live: "https://bergjoel93.github.io/sign-up-form",
+  //   for: "",
+  //   learned: "",
+  // },
+  // Calculator: {
+  //   name: "Calculator",
+  //   img: "./assets/screenshots/Calculator.png",
+  //   description:
+  //     "The Calculator project from The Odin Project is a comprehensive exercise designed to consolidate the JavaScript, HTML, and CSS skills learned throughout the course. The purpose of this project is to create a functional on-screen calculator that performs basic arithmetic operations. ",
+  //   repo: "https://github.com/bergjoel93/Calculator",
+  //   live: "https://bergjoel93.github.io/Calculator",
+  //   for: "",
+  //   learned: "",
+  // },
+  // EtchASketch: {
+  //   name: "Etch-A-Sketch",
+  //   img: "./assets/screenshots/EtchaSketch.png",
+  //   description:
+  //     "The Etch-a-Sketch project from The Odin Project is a creative exercise designed to strengthen DOM manipulation skills using JavaScript and Flexbox for layout. The purpose of this project is to build a browser-based sketchpad that allows users to draw by hovering over a grid of squares. ",
+  //   repo: "https://github.com/bergjoel93/odin-project-Etch-a-Sketch",
+  //   live: "https://bergjoel93.github.io/odin-project-Etch-a-Sketch",
+  //   for: "",
+  //   learned: "",
+  // },
+  // LandingPage: {
+  //   name: "Landing Page",
+  //   img: "./assets/screenshots/OdinLandingPage.png",
+  //   description:
+  //     "The Landing Page project from The Odin Project involves creating a complete web page based on provided design images, focusing on HTML and CSS skills. The purpose of this project is to practice translating a visual design into a functional web page, honing layout and styling skills.",
+  //   repo: "https://github.com/bergjoel93/odin-landing-page",
+  //   live: "https://bergjoel93.github.io/odin-landing-page",
+  //   for: "",
+  //   learned: "",
+  // },
 };
 
 export { projects };

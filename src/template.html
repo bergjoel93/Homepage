@@ -9,6 +9,7 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <nav>
@@ -101,20 +102,20 @@
     <section id="section-projects">
       <!-- Project cards go here -->
       <h2 class="projects-title">My Projects</h2>
-      <div class="picture-frame">
-        <div class="project-card-container"></div>
-        <div class="carousel-arrows">
-          <button class="carousel-button prev" data-carousel-button="prev">
-            ⇦
-          </button>
-          <button class="carousel-button next" data-carousel-button="next">
-            ⇨
-          </button>
-        </div>
+      <div class="carousel-container">
+        <div class="carousel"></div>
+      </div>
+      <div class="carousel-arrows">
+        <button class="carousel-button prev" data-carousel-button="prev">
+          ⇦
+        </button>
+        <button class="carousel-button next" data-carousel-button="next">
+          ⇨
+        </button>
       </div>
     </section>
 
-    <footer>
+    <section class="section-contact">
       <div class="contact-main-container">
         <h2 class="contact-title">Contact Me</h2>
         <div class="contact-second-container">
@@ -125,34 +126,33 @@
             />
             <h4 class="phone-number">+1 (385) 445-1454</h4>
           </div>
-        </div>
-
-        <div class="location-container">
-          <img
-            src="./assets/icons/home-1-svgrepo-com.svg"
-            alt="My location icon"
-          />
-          <h4 class="location">Murray, UT, United States</h4>
-        </div>
-
-        <div class="email-container">
-          <img
-            src="./assets/icons/mailbox-svgrepo-com.svg"
-            alt="My email icon"
-          />
-          <h4 class="email">jberg33.student@gmail.com</h4>
+          <div class="location-container">
+            <img
+              src="./assets/icons/home-1-svgrepo-com.svg"
+              alt="My location icon"
+            />
+            <h4 class="location">Murray, UT, United States</h4>
+          </div>
+          <div class="email-container">
+            <img
+              src="./assets/icons/mailbox-svgrepo-com.svg"
+              alt="My email icon"
+            />
+            <h4 class="email">jberg33.student@gmail.com</h4>
+          </div>
         </div>
       </div>
-      <div class="lowest">
-        <h5 class="copyright">© Copyright by Joel Berg - 2024</h5>
-        <button class="back-to-top-button">
-          Back to Top
-          <img
-            src="./assets/icons/up-arrow-svgrepo-com.svg"
-            alt="Up arrow icon"
-          />
-        </button>
-      </div>
+    </section>
+
+    <footer>
+      <h5 class="copyright">© Copyright by Joel Berg - 2024</h5>
+      <button class="back-to-top-button">
+        Back to Top
+        <img
+          src="./assets/icons/up-arrow-svgrepo-com.svg"
+          alt="Up arrow icon"
+        />
+      </button>
     </footer>
   </body>
 </html>

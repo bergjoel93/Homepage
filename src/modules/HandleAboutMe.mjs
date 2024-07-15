@@ -62,7 +62,7 @@ export default class AboutMe {
     const skillsContainer = document.createElement("div");
     skillsContainer.className = "skills-container";
     skillsContainer.innerHTML = `
-              <div class="skills-container">
+ 
               <div class="skills-card">
                 <div class="column-1">
                   <h3>Web Development:</h3>
@@ -212,7 +212,7 @@ export default class AboutMe {
                   />
                 </div>
               </div>
-            </div>
+
     `;
     return skillsContainer;
   }
