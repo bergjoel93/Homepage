@@ -56,6 +56,11 @@ section {
   clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
 }
 
+.space {
+  width: 100%;
+  height: 100px;
+}
+
 /* Navigation Bar */
 nav {
   width: 100%;
@@ -88,7 +93,7 @@ nav .nav-buttons-container {
   gap: 80px;
 }
 
-nav .nav-buttons-container button {
+nav .nav-buttons-container a {
   padding: 1rem;
   cursor: pointer;
   border-style: none;
@@ -96,9 +101,11 @@ nav .nav-buttons-container button {
   font-size: 1.5rem;
   font-family: var(--font-strong);
   transition: transform 0.2s;
+  text-decoration: none;
+  color: black;
 }
 
-nav .nav-buttons-container button:hover {
+nav .nav-buttons-container a:hover {
   transform: translateY(-6px);
 }
 
@@ -251,9 +258,31 @@ section#section-home {
   overflow-y: auto;
 }
 
-/* About Me Section */
 .about-me-container {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+}
+
+.about-me-container-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: clamp(45ch, 100%, 75ch);
+  background-color: white;
+  padding: 32px;
+  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+}
+
+.about-me-img {
+  height: 500px;
+  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
 }
 
 .about-me-container h2 {
@@ -311,6 +340,7 @@ section#section-home {
 /* Projects Section  */
 #section-projects {
   margin-top: 5rem;
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -418,7 +448,7 @@ section#section-home {
 
 /* Contact Stuff */
 
-.section-contact {
+#section-contact {
   height: 50vh;
 }
 
