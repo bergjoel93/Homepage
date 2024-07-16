@@ -130,6 +130,40 @@ nav .nav-buttons-container a:hover {
   transform: translateY(-6px);
 }
 
+nav .hamburger-menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+nav .mobile-nav-buttons-container {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 72px; /* height of the navbar */
+  width: 100%;
+  background-color: var(--background-color-01);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav .mobile-nav-buttons-container a {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: black;
+}
+
+nav .close-button {
+  display: block;
+  font-size: 2rem;
+  cursor: pointer;
+  text-align: right;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
 /* Home Section  */
 section#section-home {
   display: flex;
@@ -249,6 +283,13 @@ section#section-home {
   border-right: none;
 }
 
+.about-menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
 /*About SEction contet */
 #section-about {
   display: flex;
@@ -266,11 +307,14 @@ section#section-home {
   margin-top: 24px;
 }
 
+.mobile-about-menu-container {
+  display: none;
+}
+
 .about-info-container {
   flex: 1;
   display: flex;
   padding: 12px;
-  overflow-y: auto;
 }
 
 .about-me-container {
@@ -522,7 +566,84 @@ footer button {
 
 footer button:hover {
   transform: translateY(-6px);
-}`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CA:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap\");\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n:root {\n  --clipped-background-color: rgb(8 145 178);\n  /* colors */\n  --background-color-01: #f1f1f1;\n  --background-color-02: #7dd3fc;\n  --about-color-0: #e0f2fe;\n  --about-color-1: #e2e8f0;\n  --about-color-2: #ede9fe;\n  --about-color-3: #ccfbf1;\n  --button-color-1: #7dd3fc;\n  /* fonts */\n  --font-cursive: \"Playwrite CA\", cursive;\n  --font-roboto: \"Roboto Mono\", monospace;\n  --font-strong: \"Arsenal SC\", sans-serif;\n\n  --carousel-color-0: #e0f2fe;\n  --carousel-color-1: #ede9fe;\n  --carousel-color-2: #ccfbf1;\n  --carousel-color-3: #fbcfe8;\n\n  /*Sizes*/\n  --max-width: 960px;\n}\n\nhtml {\n  background-color: var(--background-color-01);\n}\n\nbody {\n  font-family: var(--font-roboto);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\nsection {\n  height: 100vh;\n  box-sizing: border-box;\n  max-width: var(--max-width);\n  width: 100%;\n}\n\n.clipped-background {\n  position: absolute;\n  z-index: -1;\n  width: 100%;\n  height: 100vh;\n  background-color: var(--clipped-background-color);\n  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);\n}\n\n.space {\n  width: 100%;\n  height: 100px;\n}\n\n/* Navigation Bar */\nnav {\n  width: 100%;\n  min-height: 72px;\n  position: fixed;\n  top: 0;\n  z-index: 1000;\n  background-color: var(--background-color-01);\n  display: grid;\n  grid-template-columns: 1fr 8fr 1fr;\n  justify-content: space-between;\n  align-items: center;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\nnav .nav-name-container {\n  /* give it a fancy font */\n  margin: 1rem;\n  font-family: \"Playwrite CA\", cursive;\n}\n\nnav .nav-buttons-container {\n  margin: 1rem;\n  justify-self: center;\n  display: flex;\n  justify-content: center;\n  flex-grow: 1;\n  gap: 80px;\n}\n\nnav .nav-buttons-container a {\n  padding: 1rem;\n  cursor: pointer;\n  border-style: none;\n  background-color: var(--background-color-01);\n  font-size: 1.5rem;\n  font-family: var(--font-strong);\n  transition: transform 0.2s;\n  text-decoration: none;\n  color: black;\n}\n\nnav .nav-buttons-container a:hover {\n  transform: translateY(-6px);\n}\n\n/* Home Section  */\n\nsection#section-home {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.headshot,\n.home-details-container {\n  box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -webkit-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -moz-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n}\n\n.home-main-container {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n}\n\n.home-details-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 400px;\n  height: 560px;\n  background-color: var(--background-color-02);\n  border-radius: 25%;\n  padding: 1rem;\n}\n\n.headshot {\n  width: 400px;\n  border-radius: 25%;\n}\n\n.home-text-container {\n  padding: 0 0 18px 36px;\n}\n\n.home-text-container h1 {\n  font-family: var(--font-strong);\n  font-size: 2.5rem;\n}\n\n.home-buttons-container {\n  margin: 8px 8px;\n  display: flex;\n  gap: 8px;\n}\n\n.home-buttons-container button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\n.home-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n.home-web-links-container {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n  align-items: center;\n}\n\n.linkedin-icon {\n}\n\n/* About Section Menu */\n\n.about-menu-container {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n}\n\n.about-menu-container button {\n  font-size: 28px;\n  font-family: var(--font-roboto);\n  border-style: none;\n  padding: 0.5rem;\n  border-right: solid 1px var(--background-color-01);\n  cursor: pointer;\n  transform-origin: bottom;\n  transition: transform ease 0.3s;\n}\n\n.about-menu-container button:hover {\n  transform: scaleY(1.4);\n}\n\n.about-menu-container button:nth-child(1) {\n  background-color: var(--about-color-0);\n}\n\n.about-menu-container button:nth-child(2) {\n  background-color: var(--about-color-1);\n}\n\n.about-menu-container button:nth-child(3) {\n  background-color: var(--about-color-2);\n}\n\n.about-menu-container button:nth-child(4) {\n  background-color: var(--about-color-3);\n}\n\n.about-menu-container button:last-child {\n  border-right: none;\n}\n\n/*About SEction contet */\n\n#section-about {\n  display: flex;\n  justify-content: center;\n}\n\n.about-container {\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  background-color: var(--about-color-0);\n  display: flex;\n  flex-direction: column;\n  max-height: 80%;\n  margin-top: 24px;\n}\n\n.about-info-container {\n  flex: 1;\n  display: flex;\n  padding: 12px;\n  overflow-y: auto;\n}\n\n.about-me-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin: 16px;\n}\n\n.about-me-container-2 {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  width: clamp(45ch, 100%, 75ch);\n  background-color: white;\n  padding: 32px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.about-me-img {\n  height: 500px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.about-me-container h2 {\n  margin-bottom: 0.3rem;\n}\n\n/* Skills Section */\n.skills-container {\n  display: grid;\n  grid-template-rows: repeat(5, 1fr);\n  height: 100%;\n}\n\n.skills-card {\n  flex: 1;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  min-width: 90%;\n  border-bottom: 0.2px solid black;\n  padding: 8px;\n}\n\n.skills-card .column-1 h3 {\n  font-size: 32px;\n  font-family: var(--font-strong);\n  font-weight: lighter;\n}\n\n.skills-card .column-2 {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 24px;\n  flex-wrap: wrap;\n}\n\n.skills-card .column-2 img {\n  width: 54px;\n}\n\n/*  message box */\n.message-box {\n  position: absolute;\n  padding: 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  color: white;\n  border-radius: 5px;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 0.3s ease, transform 0.5s ease;\n  transform: translateY(-10px);\n}\n\n/* Projects Section  */\n#section-projects {\n  margin-top: 5rem;\n  padding-top: 48px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.carousel-container {\n  padding: 24px;\n  width: 350px;\n  height: 200px;\n  position: relative;\n  perspective: 3500px;\n  margin: 0 auto;\n}\n\n.carousel {\n  transform-style: preserve-3d;\n  transition: transform 1s;\n}\n\n/* Project Cards */\n.project-card {\n  display: block;\n  position: absolute;\n  width: 300px;\n  height: 500px;\n  background-color: var(--about-color-0);\n  padding: 16px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.project-card-img-container {\n}\n\n.project-card img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n\n.project-info-title-container {\n  display: grid;\n  grid-template-columns: 4fr 1fr;\n  align-items: center;\n  padding: 6px;\n}\n\n.project-name {\n  font-size: 16px;\n}\n\n.project-name,\n.project-links {\n  padding: 4px;\n}\n\n.project-links {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n\n.project-description {\n  font-size: 13px;\n}\n\n.view-code,\n.view-live {\n  cursor: pointer;\n}\n\n.view-code img,\n.view-live img {\n  width: 20px;\n  overflow: visible;\n}\n\n.carousel-arrows {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.carousel-button {\n  font-size: 4rem;\n  background: none;\n  border: none;\n  color: rgba(255, 255, 255, 0.5);\n  cursor: pointer;\n  background-color: rgba(0, 0, 0, 0.1);\n  border-radius: 0.25rem;\n  padding: 0 0.5rem;\n  padding-bottom: 0.4rem;\n}\n.carousel-button:hover,\n.carousel-button:focus {\n  color: rgba(255, 255, 255, 0.9);\n  background-color: rgba(0, 0, 0, 0.3);\n}\n\n.carousel-button:focus {\n  outline: 1px solid black;\n}\n\n/* Contact Stuff */\n\n#section-contact {\n  height: 50vh;\n}\n\n.contact-main-container {\n  display: flex;\n  background-color: var(--clipped-background-color);\n  padding: 24px;\n  flex-direction: column;\n  gap: 12px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  align-items: center;\n}\n\n.phone-container,\n.location-container,\n.email-container {\n  display: flex;\n  padding: 12px;\n  align-items: center;\n  gap: 16px;\n}\n\n.phone-container img,\n.location-container img,\n.email-container img {\n  width: 48px;\n}\n\n.back-to-top-button img {\n  width: 16px;\n}\n\nfooter {\n  width: 90%;\n  display: flex;\n  justify-content: space-between;\n  margin: 2rem;\n  align-items: center;\n}\n\nfooter button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\nfooter button:hover {\n  transform: translateY(-6px);\n}\n"],"sourceRoot":""}]);
+}
+
+/* Tablet Size */
+@media (max-width: 976px) {
+  section {
+    max-width: none;
+    height: auto;
+  }
+  #section-home {
+    margin-top: 120px;
+  }
+  .home-main-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-img-container {
+    display: none;
+  }
+  #section-about {
+    min-height: 850px;
+  }
+  .about-container {
+    max-height: none;
+  }
+  .about-me-container {
+    flex-direction: column;
+  }
+  #section-projects {
+    position: relative;
+    min-height: 850px;
+    margin-bottom: 16px;
+  }
+  .carousel-arrows {
+    position: absolute;
+    bottom: 80px;
+    justify-content: center;
+    gap: 32px;
+  }
+}
+@media (max-width: 760px) {
+  nav {
+    display: flex;
+  }
+  nav .nav-buttons-container {
+    display: none;
+  }
+  nav .hamburger-menu {
+    display: block;
+  }
+  .about-menu-container {
+    display: none;
+    position: relative;
+  }
+  .about-menu-toggle {
+    display: block;
+    align-self: flex-end;
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+  .mobile-about-menu-container {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    background-color: var(--background-color-01);
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  }
+  .mobile-about-menu-container.open {
+    /* Class to display when open */
+    display: flex;
+  }
+  .mobile-about-menu-container button {
+    border-right: none;
+    border-bottom: solid 1px var(--background-color-01);
+  }
+  .mobile-about-menu-container button:last-child {
+    border-bottom: none;
+  }
+}`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CA:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap\");\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n:root {\n  --clipped-background-color: rgb(8 145 178);\n  /* colors */\n  --background-color-01: #f1f1f1;\n  --background-color-02: #7dd3fc;\n  --about-color-0: #e0f2fe;\n  --about-color-1: #e2e8f0;\n  --about-color-2: #ede9fe;\n  --about-color-3: #ccfbf1;\n  --button-color-1: #7dd3fc;\n  /* fonts */\n  --font-cursive: \"Playwrite CA\", cursive;\n  --font-roboto: \"Roboto Mono\", monospace;\n  --font-strong: \"Arsenal SC\", sans-serif;\n\n  --carousel-color-0: #e0f2fe;\n  --carousel-color-1: #ede9fe;\n  --carousel-color-2: #ccfbf1;\n  --carousel-color-3: #fbcfe8;\n\n  /*Sizes*/\n  --max-width: 960px;\n}\n\nhtml {\n  background-color: var(--background-color-01);\n}\n\nbody {\n  font-family: var(--font-roboto);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\nsection {\n  height: 100vh;\n  box-sizing: border-box;\n  max-width: var(--max-width);\n  width: 100%;\n}\n\n.clipped-background {\n  position: absolute;\n  z-index: -1;\n  width: 100%;\n  height: 100vh;\n  background-color: var(--clipped-background-color);\n  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);\n}\n\n.space {\n  width: 100%;\n  height: 100px;\n}\n\n/* Navigation Bar */\nnav {\n  width: 100%;\n  min-height: 72px;\n  position: fixed;\n  top: 0;\n  z-index: 1000;\n  background-color: var(--background-color-01);\n  display: grid;\n  grid-template-columns: 1fr 8fr 1fr;\n  justify-content: space-between;\n  align-items: center;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\nnav .nav-name-container {\n  /* give it a fancy font */\n  margin: 1rem;\n  font-family: \"Playwrite CA\", cursive;\n}\n\nnav .nav-buttons-container {\n  margin: 1rem;\n  justify-self: center;\n  display: flex;\n  justify-content: center;\n  flex-grow: 1;\n  gap: 80px;\n}\n\nnav .nav-buttons-container a {\n  padding: 1rem;\n  cursor: pointer;\n  border-style: none;\n  background-color: var(--background-color-01);\n  font-size: 1.5rem;\n  font-family: var(--font-strong);\n  transition: transform 0.2s;\n  text-decoration: none;\n  color: black;\n}\n\nnav .nav-buttons-container a:hover {\n  transform: translateY(-6px);\n}\n\nnav .hamburger-menu {\n  display: none;\n  font-size: 2rem;\n  cursor: pointer;\n  margin-right: 1rem;\n}\n\nnav .mobile-nav-buttons-container {\n  display: none;\n  flex-direction: column;\n  position: absolute;\n  top: 72px; /* height of the navbar */\n  width: 100%;\n  background-color: var(--background-color-01);\n  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);\n}\n\nnav .mobile-nav-buttons-container a {\n  padding: 1rem;\n  text-align: center;\n  border-bottom: 1px solid #ddd;\n  text-decoration: none;\n  color: black;\n}\n\nnav .close-button {\n  display: block;\n  font-size: 2rem;\n  cursor: pointer;\n  text-align: right;\n  padding: 1rem;\n  border-bottom: 1px solid #ddd;\n}\n\n/* Home Section  */\n\nsection#section-home {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.headshot,\n.home-details-container {\n  box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -webkit-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -moz-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n}\n\n.home-main-container {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n}\n\n.home-details-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 400px;\n  height: 560px;\n  background-color: var(--background-color-02);\n  border-radius: 25%;\n  padding: 1rem;\n}\n\n.headshot {\n  width: 400px;\n  border-radius: 25%;\n}\n\n.home-text-container {\n  padding: 0 0 18px 36px;\n}\n\n.home-text-container h1 {\n  font-family: var(--font-strong);\n  font-size: 2.5rem;\n}\n\n.home-buttons-container {\n  margin: 8px 8px;\n  display: flex;\n  gap: 8px;\n}\n\n.home-buttons-container button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\n.home-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n.home-web-links-container {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n  align-items: center;\n}\n\n.linkedin-icon {\n}\n\n/* About Section Menu */\n\n.about-menu-container {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n}\n\n.about-menu-container button {\n  font-size: 28px;\n  font-family: var(--font-roboto);\n  border-style: none;\n  padding: 0.5rem;\n  border-right: solid 1px var(--background-color-01);\n  cursor: pointer;\n  transform-origin: bottom;\n  transition: transform ease 0.3s;\n}\n\n.about-menu-container button:hover {\n  transform: scaleY(1.4);\n}\n\n.about-menu-container button:nth-child(1) {\n  background-color: var(--about-color-0);\n}\n\n.about-menu-container button:nth-child(2) {\n  background-color: var(--about-color-1);\n}\n\n.about-menu-container button:nth-child(3) {\n  background-color: var(--about-color-2);\n}\n\n.about-menu-container button:nth-child(4) {\n  background-color: var(--about-color-3);\n}\n\n.about-menu-container button:last-child {\n  border-right: none;\n}\n\n.about-menu-toggle {\n  display: none;\n  font-size: 2rem;\n  cursor: pointer;\n  margin-right: 1rem;\n}\n\n/*About SEction contet */\n\n#section-about {\n  display: flex;\n  justify-content: center;\n}\n\n.about-container {\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  background-color: var(--about-color-0);\n  display: flex;\n  flex-direction: column;\n  max-height: 80%;\n  margin-top: 24px;\n}\n\n.mobile-about-menu-container {\n  display: none;\n}\n\n.about-info-container {\n  flex: 1;\n  display: flex;\n  padding: 12px;\n}\n\n.about-me-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin: 16px;\n}\n\n.about-me-container-2 {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  width: clamp(45ch, 100%, 75ch);\n  background-color: white;\n  padding: 32px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.about-me-img {\n  height: 500px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.about-me-container h2 {\n  margin-bottom: 0.3rem;\n}\n\n/* Skills Section */\n.skills-container {\n  display: grid;\n  grid-template-rows: repeat(5, 1fr);\n  height: 100%;\n}\n\n.skills-card {\n  flex: 1;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  min-width: 90%;\n  border-bottom: 0.2px solid black;\n  padding: 8px;\n}\n\n.skills-card .column-1 h3 {\n  font-size: 32px;\n  font-family: var(--font-strong);\n  font-weight: lighter;\n}\n\n.skills-card .column-2 {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 24px;\n  flex-wrap: wrap;\n}\n\n.skills-card .column-2 img {\n  width: 54px;\n}\n\n/*  message box */\n.message-box {\n  position: absolute;\n  padding: 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  color: white;\n  border-radius: 5px;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 0.3s ease, transform 0.5s ease;\n  transform: translateY(-10px);\n}\n\n/* Projects Section  */\n#section-projects {\n  margin-top: 5rem;\n  padding-top: 48px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.carousel-container {\n  padding: 24px;\n  width: 350px;\n  height: 200px;\n  position: relative;\n  perspective: 3500px;\n  margin: 0 auto;\n}\n\n.carousel {\n  transform-style: preserve-3d;\n  transition: transform 1s;\n}\n\n/* Project Cards */\n.project-card {\n  display: block;\n  position: absolute;\n  width: 300px;\n  height: 500px;\n  background-color: var(--about-color-0);\n  padding: 16px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.project-card-img-container {\n}\n\n.project-card img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n\n.project-info-title-container {\n  display: grid;\n  grid-template-columns: 4fr 1fr;\n  align-items: center;\n  padding: 6px;\n}\n\n.project-name {\n  font-size: 16px;\n}\n\n.project-name,\n.project-links {\n  padding: 4px;\n}\n\n.project-links {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n\n.project-description {\n  font-size: 13px;\n}\n\n.view-code,\n.view-live {\n  cursor: pointer;\n}\n\n.view-code img,\n.view-live img {\n  width: 20px;\n  overflow: visible;\n}\n\n.carousel-arrows {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.carousel-button {\n  font-size: 4rem;\n  background: none;\n  border: none;\n  color: rgba(255, 255, 255, 0.5);\n  cursor: pointer;\n  background-color: rgba(0, 0, 0, 0.1);\n  border-radius: 0.25rem;\n  padding: 0 0.5rem;\n  padding-bottom: 0.4rem;\n}\n.carousel-button:hover,\n.carousel-button:focus {\n  color: rgba(255, 255, 255, 0.9);\n  background-color: rgba(0, 0, 0, 0.3);\n}\n\n.carousel-button:focus {\n  outline: 1px solid black;\n}\n\n/* Contact Stuff */\n\n#section-contact {\n  height: 50vh;\n}\n\n.contact-main-container {\n  display: flex;\n  background-color: var(--clipped-background-color);\n  padding: 24px;\n  flex-direction: column;\n  gap: 12px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  align-items: center;\n}\n\n.phone-container,\n.location-container,\n.email-container {\n  display: flex;\n  padding: 12px;\n  align-items: center;\n  gap: 16px;\n}\n\n.phone-container img,\n.location-container img,\n.email-container img {\n  width: 48px;\n}\n\n.back-to-top-button img {\n  width: 16px;\n}\n\nfooter {\n  width: 90%;\n  display: flex;\n  justify-content: space-between;\n  margin: 2rem;\n  align-items: center;\n}\n\nfooter button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\nfooter button:hover {\n  transform: translateY(-6px);\n}\n\n/* Tablet Size */\n\n@media (max-width: 976px) {\n  section {\n    max-width: none;\n    height: auto;\n  }\n  #section-home {\n    margin-top: 120px;\n  }\n  .home-main-container {\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .home-img-container {\n    display: none;\n  }\n\n  #section-about {\n    min-height: 850px;\n  }\n\n  .about-container {\n    max-height: none;\n  }\n\n  .about-me-container {\n    flex-direction: column;\n  }\n\n  #section-projects {\n    position: relative;\n    min-height: 850px;\n    margin-bottom: 16px;\n  }\n  .carousel-arrows {\n    position: absolute;\n    bottom: 80px;\n    justify-content: center;\n    gap: 32px;\n  }\n}\n\n@media (max-width: 760px) {\n  nav {\n    display: flex;\n  }\n\n  nav .nav-buttons-container {\n    display: none;\n  }\n\n  nav .hamburger-menu {\n    display: block;\n  }\n\n  .about-menu-container {\n    display: none;\n    position: relative;\n  }\n\n  .about-menu-toggle {\n    display: block;\n    align-self: flex-end;\n    font-size: 2rem;\n    margin-right: 1rem;\n  }\n\n  .mobile-about-menu-container {\n    display: none; /* Hide by default */\n    flex-direction: column;\n    background-color: var(--background-color-01);\n    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);\n  }\n\n  .mobile-about-menu-container.open {\n    /* Class to display when open */\n    display: flex;\n  }\n\n  .mobile-about-menu-container button {\n    border-right: none;\n    border-bottom: solid 1px var(--background-color-01);\n  }\n\n  .mobile-about-menu-container button:last-child {\n    border-bottom: none;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1035,13 +1156,13 @@ class Carousel {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ AboutMe)
+/* harmony export */   "default": () => (/* binding */ HandleAboutMe)
 /* harmony export */ });
 /**
  * Responsible for handling the interactions between the user and the About Me section.
  */
 
-class AboutMe {
+class HandleAboutMe {
   constructor() {
     this.aboutInfoContainer = document.querySelector(".about-info-container");
     this.aboutContainer = document.querySelector(".about-container");
@@ -1083,17 +1204,25 @@ class AboutMe {
     const aboutMeContainer = document.createElement("div");
     aboutMeContainer.className = "about-me-container";
     aboutMeContainer.innerHTML = `
-          <h2>A little bit about me</h2>
-          <p>
-          My name is Joel, and I'm an educated/self-taught web developer
-          with a passion for user-experience, design, and back-end coding. I
-          am passionate about creating websites with crisp, clean designs
-          that prioritize user-freindliness. A great website offers an
-          intuitive and seamless experience, focusing on what the user needs
-          to control and ensuring they can do so with minimal effort. I
-          enjoy the challenge of solving problems to enhance the user
-          interaction and satisfaction.
-          </p>
+
+    <img class="about-me-img" src="./assets/personal/about.jpg" alt="Picture of Joel">
+
+
+    <div class="about-me-container-2">
+      <h2>A little bit about me</h2>
+      <p>
+        I'm an educated/self-taught web developer with a passion for
+        user-experience, design, and back-end coding. I am passionate
+        about creating websites with crisp, clean designs that prioritize
+        user-freindliness. A great website offers an intuitive and
+        seamless experience, focusing on what the user needs to control
+        and ensuring they can do so with minimal effort. I enjoy the
+        challenge of solving problems to enhance the user interaction and
+        satisfaction.
+        <br> <br>
+        I graduated in 2016 from Westminster University with a B.S. in Environmental Science and an Associates of Computer Science in 2023 from Salt Lake Community College. 
+      </p>
+    </div>
     `;
     return aboutMeContainer;
   }
@@ -1695,6 +1824,49 @@ backToTopBtn.addEventListener("click", () => {
   window.scrollTo({
     top: home.offsetTop,
     behavior: "smooth"
+  });
+});
+
+// Handle mobile hamburger nav menu
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerMenu = document.getElementById("hamburger-menu");
+  const mobileNavButtonsContainer = document.getElementById("mobile-nav-buttons-container");
+  const closeButton = document.getElementById("close-button");
+  hamburgerMenu.addEventListener("click", () => {
+    if (mobileNavButtonsContainer.style.display == "flex") {
+      mobileNavButtonsContainer.style.display = "none";
+    } else {
+      mobileNavButtonsContainer.style.display = "flex";
+    }
+  });
+  window.addEventListener("click", event => {
+    if (event.target !== mobileNavButtonsContainer && event.target !== hamburgerMenu && !mobileNavButtonsContainer.contains(event.target)) {
+      mobileNavButtonsContainer.style.display = "none";
+    }
+  });
+});
+
+// Handle about menu for mobile
+document.addEventListener("DOMContentLoaded", () => {
+  // Ensure script runs after DOM is fully loaded
+  const aboutHamburger = document.querySelector("#about-menu-toggle"); // Updated selector
+  const mobileAboutMenu = document.querySelector("#mobile-about-menu-container"); // Updated selector
+
+  aboutHamburger.addEventListener("click", event => {
+    event.stopPropagation(); // Prevent the click from propagating to the window
+    if (mobileAboutMenu.style.display === "flex") {
+      mobileAboutMenu.style.display = "none";
+    } else {
+      mobileAboutMenu.style.display = "flex";
+    }
+  });
+  window.addEventListener("click", event => {
+    if (!mobileAboutMenu.contains(event.target) && event.target !== aboutHamburger) {
+      mobileAboutMenu.style.display = "none";
+    }
+  });
+  mobileAboutMenu.addEventListener("click", event => {
+    event.stopPropagation(); // Prevent the click inside the menu from propagating to the window
   });
 });
 })();

@@ -2,7 +2,7 @@
  * Responsible for handling the interactions between the user and the About Me section.
  */
 
-export default class AboutMe {
+export default class HandleAboutMe {
   constructor() {
     this.aboutInfoContainer = document.querySelector(".about-info-container");
     this.aboutContainer = document.querySelector(".about-container");
@@ -44,17 +44,25 @@ export default class AboutMe {
     const aboutMeContainer = document.createElement("div");
     aboutMeContainer.className = "about-me-container";
     aboutMeContainer.innerHTML = `
-          <h2>A little bit about me</h2>
-          <p>
-          My name is Joel, and I'm an educated/self-taught web developer
-          with a passion for user-experience, design, and back-end coding. I
-          am passionate about creating websites with crisp, clean designs
-          that prioritize user-freindliness. A great website offers an
-          intuitive and seamless experience, focusing on what the user needs
-          to control and ensuring they can do so with minimal effort. I
-          enjoy the challenge of solving problems to enhance the user
-          interaction and satisfaction.
-          </p>
+
+    <img class="about-me-img" src="./assets/personal/about.jpg" alt="Picture of Joel">
+
+
+    <div class="about-me-container-2">
+      <h2>A little bit about me</h2>
+      <p>
+        I'm an educated/self-taught web developer with a passion for
+        user-experience, design, and back-end coding. I am passionate
+        about creating websites with crisp, clean designs that prioritize
+        user-freindliness. A great website offers an intuitive and
+        seamless experience, focusing on what the user needs to control
+        and ensuring they can do so with minimal effort. I enjoy the
+        challenge of solving problems to enhance the user interaction and
+        satisfaction.
+        <br> <br>
+        I graduated in 2016 from Westminster University with a B.S. in Environmental Science and an Associates of Computer Science in 2023 from Salt Lake Community College. 
+      </p>
+    </div>
     `;
     return aboutMeContainer;
   }
