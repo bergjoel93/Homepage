@@ -29,6 +29,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 
 :root {
+  --clipped-background-color: rgb(8 145 178);
   /* colors */
   --background-color-01: #f1f1f1;
   --background-color-02: #7dd3fc;
@@ -41,6 +42,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   --font-cursive: "Playwrite CA", cursive;
   --font-roboto: "Roboto Mono", monospace;
   --font-strong: "Arsenal SC", sans-serif;
+  --carousel-color-0: #e0f2fe;
+  --carousel-color-1: #ede9fe;
+  --carousel-color-2: #ccfbf1;
+  --carousel-color-3: #fbcfe8;
   /*Sizes*/
   --max-width: 960px;
 }
@@ -68,8 +73,13 @@ section {
   z-index: -1;
   width: 100%;
   height: 100vh;
-  background-color: rgb(8, 145, 178);
+  background-color: var(--clipped-background-color);
   clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+}
+
+.space {
+  width: 100%;
+  height: 100px;
 }
 
 /* Navigation Bar */
@@ -104,7 +114,7 @@ nav .nav-buttons-container {
   gap: 80px;
 }
 
-nav .nav-buttons-container button {
+nav .nav-buttons-container a {
   padding: 1rem;
   cursor: pointer;
   border-style: none;
@@ -112,9 +122,11 @@ nav .nav-buttons-container button {
   font-size: 1.5rem;
   font-family: var(--font-strong);
   transition: transform 0.2s;
+  text-decoration: none;
+  color: black;
 }
 
-nav .nav-buttons-container button:hover {
+nav .nav-buttons-container a:hover {
   transform: translateY(-6px);
 }
 
@@ -250,18 +262,42 @@ section#section-home {
   background-color: var(--about-color-0);
   display: flex;
   flex-direction: column;
+  max-height: 80%;
+  margin-top: 24px;
 }
 
 .about-info-container {
   flex: 1;
   display: flex;
-  padding: 12px 48px 12px 48px;
+  padding: 12px;
   overflow-y: auto;
 }
 
-/* About Me Section */
 .about-me-container {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+}
+
+.about-me-container-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: clamp(45ch, 100%, 75ch);
+  background-color: white;
+  padding: 32px;
+  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+}
+
+.about-me-img {
+  height: 500px;
+  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
 }
 
 .about-me-container h2 {
@@ -270,18 +306,19 @@ section#section-home {
 
 /* Skills Section */
 .skills-container {
-  flex: 1;
   display: grid;
   grid-template-rows: repeat(5, 1fr);
+  height: 100%;
 }
 
 .skills-card {
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   min-width: 90%;
   border-bottom: 0.2px solid black;
-  padding: 12px;
+  padding: 8px;
 }
 
 .skills-card .column-1 h3 {
@@ -299,7 +336,7 @@ section#section-home {
 }
 
 .skills-card .column-2 img {
-  width: 64px;
+  width: 54px;
 }
 
 /*  message box */
@@ -318,71 +355,37 @@ section#section-home {
 /* Projects Section  */
 #section-projects {
   margin-top: 5rem;
-}
-
-.project-card-container {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(280px, 1fr);
-  gap: 16px;
-}
-
-.picture-frame {
-  border: solid green 3px;
-  padding: 24px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  position: relative;
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
-}
-
-.carousel-arrows {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  z-index: 1;
 }
 
-.carousel-button {
-  font-size: 4rem;
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 0.25rem;
-  padding: 0 0.5rem;
-  padding-bottom: 0.4rem;
+.carousel-container {
+  padding: 24px;
+  width: 350px;
+  height: 200px;
+  position: relative;
+  perspective: 3500px;
+  margin: 0 auto;
 }
 
-.carousel-nav-dots {
-  margin: 16px;
-  padding: 1rem;
-  width: 80%;
-  align-self: center;
-  left: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 0.5rem;
+.carousel {
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 
 /* Project Cards */
 .project-card {
-  height: 480px;
+  display: block;
+  position: absolute;
+  width: 300px;
+  height: 500px;
   background-color: var(--about-color-0);
   padding: 16px;
   box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
   -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
   -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
-  display: flex;
-  flex-direction: column;
 }
 
 .project-card img {
@@ -393,9 +396,13 @@ section#section-home {
 
 .project-info-title-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 1fr;
   align-items: center;
   padding: 6px;
+}
+
+.project-name {
+  font-size: 16px;
 }
 
 .project-name,
@@ -410,7 +417,12 @@ section#section-home {
 }
 
 .project-description {
-  font-size: 14px;
+  font-size: 13px;
+}
+
+.view-code,
+.view-live {
+  cursor: pointer;
 }
 
 .view-code img,
@@ -419,7 +431,61 @@ section#section-home {
   overflow: visible;
 }
 
+.carousel-arrows {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel-button {
+  font-size: 4rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  padding: 0 0.5rem;
+  padding-bottom: 0.4rem;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-button:focus {
+  outline: 1px solid black;
+}
+
 /* Contact Stuff */
+#section-contact {
+  height: 50vh;
+}
+
+.contact-main-container {
+  display: flex;
+  background-color: var(--clipped-background-color);
+  padding: 24px;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  align-items: center;
+}
+
+.phone-container,
+.location-container,
+.email-container {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  gap: 16px;
+}
+
 .phone-container img,
 .location-container img,
 .email-container img {
@@ -428,7 +494,35 @@ section#section-home {
 
 .back-to-top-button img {
   width: 16px;
-}`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AACA;EACE,SAAA;EACA,UAAA;EACA,sBAAA;AACF;;AAEA;EACE,WAAA;EACA,8BAAA;EACA,8BAAA;EACA,wBAAA;EACA,wBAAA;EACA,wBAAA;EACA,wBAAA;EACA,yBAAA;EACA,UAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EAEA,QAAA;EACA,kBAAA;AAAF;;AAGA;EACE,4CAAA;AAAF;;AAGA;EACE,+BAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;AAAF;;AAGA;EACE,aAAA;EACA,sBAAA;EACA,2BAAA;EACA,WAAA;AAAF;;AAGA;EACE,kBAAA;EACA,WAAA;EACA,WAAA;EACA,aAAA;EACA,kCAAA;EACA,iDAAA;AAAF;;AAGA,mBAAA;AACA;EACE,WAAA;EACA,gBAAA;EACA,eAAA;EACA,MAAA;EACA,aAAA;EACA,4CAAA;EACA,aAAA;EACA,kCAAA;EACA,8BAAA;EACA,mBAAA;EACA,mDAAA;EACA,2DAAA;EACA,wDAAA;AAAF;;AAGA;EACE,yBAAA;EACA,YAAA;EACA,oCAAA;AAAF;;AAGA;EACE,YAAA;EACA,oBAAA;EACA,aAAA;EACA,uBAAA;EACA,YAAA;EACA,SAAA;AAAF;;AAGA;EACE,aAAA;EACA,eAAA;EACA,kBAAA;EACA,4CAAA;EACA,iBAAA;EACA,+BAAA;EACA,0BAAA;AAAF;;AAGA;EACE,2BAAA;AAAF;;AAGA,kBAAA;AAEA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AADF;;AAIA;;EAEE,kDAAA;EACA,0DAAA;EACA,uDAAA;AADF;;AAIA;EACE,WAAA;EACA,aAAA;EACA,8BAAA;AADF;;AAIA;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,YAAA;EACA,aAAA;EACA,4CAAA;EACA,kBAAA;EACA,aAAA;AADF;;AAIA;EACE,YAAA;EACA,kBAAA;AADF;;AAIA;EACE,sBAAA;AADF;;AAIA;EACE,+BAAA;EACA,iBAAA;AADF;;AAIA;EACE,eAAA;EACA,aAAA;EACA,QAAA;AADF;;AAIA;EACE,oDAAA;EACA,YAAA;EACA,kBAAA;EACA,eAAA;EACA,mBAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,eAAA;EACA,wCAAA;EACA,0BAAA;EACA,aAAA;AADF;;AAIA;EACE,2BAAA;AADF;;AAIA;EACE,aAAA;EACA,uBAAA;EACA,SAAA;EACA,mBAAA;AADF;;AAOA,uBAAA;AAEA;EACE,aAAA;EACA,qCAAA;AALF;;AAQA;EACE,eAAA;EACA,+BAAA;EACA,kBAAA;EACA,eAAA;EACA,kDAAA;EACA,eAAA;EACA,wBAAA;EACA,+BAAA;AALF;;AAQA;EACE,sBAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,sCAAA;AALF;;AAQA;EACE,kBAAA;AALF;;AAQA,wBAAA;AAEA;EACE,aAAA;EACA,uBAAA;AANF;;AASA;EACE,mDAAA;EACA,2DAAA;EACA,wDAAA;EACA,sCAAA;EACA,aAAA;EACA,sBAAA;AANF;;AASA;EACE,OAAA;EACA,aAAA;EACA,4BAAA;EACA,gBAAA;AANF;;AASA,qBAAA;AACA;EACE,eAAA;AANF;;AASA;EACE,qBAAA;AANF;;AASA,mBAAA;AACA;EACE,OAAA;EACA,aAAA;EACA,kCAAA;AANF;;AASA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,cAAA;EACA,gCAAA;EACA,aAAA;AANF;;AASA;EACE,eAAA;EACA,+BAAA;EACA,oBAAA;AANF;;AASA;EACE,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,SAAA;EACA,eAAA;AANF;;AASA;EACE,WAAA;AANF;;AASA,iBAAA;AACA;EACE,kBAAA;EACA,aAAA;EACA,oCAAA;EACA,YAAA;EACA,kBAAA;EACA,oBAAA;EACA,UAAA;EACA,kDAAA;EACA,4BAAA;AANF;;AASA,sBAAA;AACA;EACE,gBAAA;AANF;;AASA;EACE,aAAA;EACA,sBAAA;EACA,qCAAA;EACA,SAAA;AANF;;AASA;EACE,uBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,sBAAA;AANF;;AASA;EACE,WAAA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,aAAA;EACA,mBAAA;EACA,8BAAA;EACA,UAAA;AANF;;AAQA;EACE,eAAA;EACA,gBAAA;EACA,YAAA;EACA,+BAAA;EACA,eAAA;EACA,oCAAA;EACA,sBAAA;EACA,iBAAA;EACA,sBAAA;AALF;;AAQA;EACE,YAAA;EACA,aAAA;EACA,UAAA;EACA,kBAAA;EACA,UAAA;EACA,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,oCAAA;EACA,qBAAA;AALF;;AAQA,kBAAA;AACA;EACE,aAAA;EACA,sCAAA;EACA,aAAA;EACA,mDAAA;EACA,2DAAA;EACA,wDAAA;EACA,aAAA;EACA,sBAAA;AALF;;AAWA;EACE,WAAA;EACA,YAAA;EACA,iBAAA;AARF;;AAWA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,YAAA;AARF;;AAWA;;EAEE,YAAA;AARF;;AAWA;EACE,aAAA;EACA,SAAA;EACA,yBAAA;AARF;;AAWA;EACE,eAAA;AARF;;AAeA;;EAEE,WAAA;EACA,iBAAA;AAZF;;AAeA,kBAAA;AAEA;;;EAGE,WAAA;AAbF;;AAgBA;EACE,WAAA;AAbF","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CA:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap\");\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n:root {\n  /* colors */\n  --background-color-01: #f1f1f1;\n  --background-color-02: #7dd3fc;\n  --about-color-0: #e0f2fe;\n  --about-color-1: #e2e8f0;\n  --about-color-2: #ede9fe;\n  --about-color-3: #ccfbf1;\n  --button-color-1: #7dd3fc;\n  /* fonts */\n  --font-cursive: \"Playwrite CA\", cursive;\n  --font-roboto: \"Roboto Mono\", monospace;\n  --font-strong: \"Arsenal SC\", sans-serif;\n\n  /*Sizes*/\n  --max-width: 960px;\n}\n\nhtml {\n  background-color: var(--background-color-01);\n}\n\nbody {\n  font-family: var(--font-roboto);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\nsection {\n  height: 100vh;\n  box-sizing: border-box;\n  max-width: var(--max-width);\n  width: 100%;\n}\n\n.clipped-background {\n  position: absolute;\n  z-index: -1;\n  width: 100%;\n  height: 100vh;\n  background-color: rgb(8 145 178);\n  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);\n}\n\n/* Navigation Bar */\nnav {\n  width: 100%;\n  min-height: 72px;\n  position: fixed;\n  top: 0;\n  z-index: 1000;\n  background-color: var(--background-color-01);\n  display: grid;\n  grid-template-columns: 1fr 8fr 1fr;\n  justify-content: space-between;\n  align-items: center;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\nnav .nav-name-container {\n  /* give it a fancy font */\n  margin: 1rem;\n  font-family: \"Playwrite CA\", cursive;\n}\n\nnav .nav-buttons-container {\n  margin: 1rem;\n  justify-self: center;\n  display: flex;\n  justify-content: center;\n  flex-grow: 1;\n  gap: 80px;\n}\n\nnav .nav-buttons-container button {\n  padding: 1rem;\n  cursor: pointer;\n  border-style: none;\n  background-color: var(--background-color-01);\n  font-size: 1.5rem;\n  font-family: var(--font-strong);\n  transition: transform 0.2s;\n}\n\nnav .nav-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n/* Home Section  */\n\nsection#section-home {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.headshot,\n.home-details-container {\n  box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -webkit-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -moz-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n}\n\n.home-main-container {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n}\n\n.home-details-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 400px;\n  height: 560px;\n  background-color: var(--background-color-02);\n  border-radius: 25%;\n  padding: 1rem;\n}\n\n.headshot {\n  width: 400px;\n  border-radius: 25%;\n}\n\n.home-text-container {\n  padding: 0 0 18px 36px;\n}\n\n.home-text-container h1 {\n  font-family: var(--font-strong);\n  font-size: 2.5rem;\n}\n\n.home-buttons-container {\n  margin: 8px 8px;\n  display: flex;\n  gap: 8px;\n}\n\n.home-buttons-container button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\n.home-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n.home-web-links-container {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n  align-items: center;\n}\n\n.linkedin-icon {\n}\n\n/* About Section Menu */\n\n.about-menu-container {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n}\n\n.about-menu-container button {\n  font-size: 28px;\n  font-family: var(--font-roboto);\n  border-style: none;\n  padding: 0.5rem;\n  border-right: solid 1px var(--background-color-01);\n  cursor: pointer;\n  transform-origin: bottom;\n  transition: transform ease 0.3s;\n}\n\n.about-menu-container button:hover {\n  transform: scaleY(1.4);\n}\n\n.about-menu-container button:nth-child(1) {\n  background-color: var(--about-color-0);\n}\n\n.about-menu-container button:nth-child(2) {\n  background-color: var(--about-color-1);\n}\n\n.about-menu-container button:nth-child(3) {\n  background-color: var(--about-color-2);\n}\n\n.about-menu-container button:nth-child(4) {\n  background-color: var(--about-color-3);\n}\n\n.about-menu-container button:last-child {\n  border-right: none;\n}\n\n/*About SEction contet */\n\n#section-about {\n  display: flex;\n  justify-content: center;\n}\n\n.about-container {\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  background-color: var(--about-color-0);\n  display: flex;\n  flex-direction: column;\n}\n\n.about-info-container {\n  flex: 1;\n  display: flex;\n  padding: 12px 48px 12px 48px;\n  overflow-y: auto;\n}\n\n/* About Me Section */\n.about-me-container {\n  padding: 1.5rem;\n}\n\n.about-me-container h2 {\n  margin-bottom: 0.3rem;\n}\n\n/* Skills Section */\n.skills-container {\n  flex: 1;\n  display: grid;\n  grid-template-rows: repeat(5, 1fr);\n}\n\n.skills-card {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  min-width: 90%;\n  border-bottom: 0.2px solid black;\n  padding: 12px;\n}\n\n.skills-card .column-1 h3 {\n  font-size: 32px;\n  font-family: var(--font-strong);\n  font-weight: lighter;\n}\n\n.skills-card .column-2 {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 24px;\n  flex-wrap: wrap;\n}\n\n.skills-card .column-2 img {\n  width: 64px;\n}\n\n/*  message box */\n.message-box {\n  position: absolute;\n  padding: 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  color: white;\n  border-radius: 5px;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 0.3s ease, transform 0.5s ease;\n  transform: translateY(-10px);\n}\n\n/* Projects Section  */\n#section-projects {\n  margin-top: 5rem;\n}\n\n.project-card-container {\n  display: grid;\n  grid-auto-flow: column;\n  grid-auto-columns: minmax(280px, 1fr);\n  gap: 16px;\n}\n\n.picture-frame {\n  border: solid green 3px;\n  padding: 24px;\n  overflow-x: scroll;\n  overflow-y: hidden;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n}\n\n.carousel-arrows {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  right: 0px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  z-index: 1;\n}\n.carousel-button {\n  font-size: 4rem;\n  background: none;\n  border: none;\n  color: rgba(255, 255, 255, 0.5);\n  cursor: pointer;\n  background-color: rgba(0, 0, 0, 0.1);\n  border-radius: 0.25rem;\n  padding: 0 0.5rem;\n  padding-bottom: 0.4rem;\n}\n\n.carousel-nav-dots {\n  margin: 16px;\n  padding: 1rem;\n  width: 80%;\n  align-self: center;\n  left: 64px;\n  display: flex;\n  align-items: center;\n  justify-content: space-evenly;\n  background-color: rgba(0, 0, 0, 0.4);\n  border-radius: 0.5rem;\n}\n\n/* Project Cards */\n.project-card {\n  height: 480px;\n  background-color: var(--about-color-0);\n  padding: 16px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  display: flex;\n  flex-direction: column;\n}\n\n.project-card-img-container {\n}\n\n.project-card img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n\n.project-info-title-container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  padding: 6px;\n}\n\n.project-name,\n.project-links {\n  padding: 4px;\n}\n\n.project-links {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n\n.project-description {\n  font-size: 14px;\n}\n\n.view-code,\n.view-live {\n}\n\n.view-code img,\n.view-live img {\n  width: 20px;\n  overflow: visible;\n}\n\n/* Contact Stuff */\n\n.phone-container img,\n.location-container img,\n.email-container img {\n  width: 48px;\n}\n\n.back-to-top-button img {\n  width: 16px;\n}\n"],"sourceRoot":""}]);
+}
+
+footer {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+  align-items: center;
+}
+
+footer button {
+  background: linear-gradient(90deg, #00c9ff, #92fe9d);
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 16px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  outline: none;
+}
+
+footer button:hover {
+  transform: translateY(-6px);
+}`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CA:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap\");\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n:root {\n  --clipped-background-color: rgb(8 145 178);\n  /* colors */\n  --background-color-01: #f1f1f1;\n  --background-color-02: #7dd3fc;\n  --about-color-0: #e0f2fe;\n  --about-color-1: #e2e8f0;\n  --about-color-2: #ede9fe;\n  --about-color-3: #ccfbf1;\n  --button-color-1: #7dd3fc;\n  /* fonts */\n  --font-cursive: \"Playwrite CA\", cursive;\n  --font-roboto: \"Roboto Mono\", monospace;\n  --font-strong: \"Arsenal SC\", sans-serif;\n\n  --carousel-color-0: #e0f2fe;\n  --carousel-color-1: #ede9fe;\n  --carousel-color-2: #ccfbf1;\n  --carousel-color-3: #fbcfe8;\n\n  /*Sizes*/\n  --max-width: 960px;\n}\n\nhtml {\n  background-color: var(--background-color-01);\n}\n\nbody {\n  font-family: var(--font-roboto);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\nsection {\n  height: 100vh;\n  box-sizing: border-box;\n  max-width: var(--max-width);\n  width: 100%;\n}\n\n.clipped-background {\n  position: absolute;\n  z-index: -1;\n  width: 100%;\n  height: 100vh;\n  background-color: var(--clipped-background-color);\n  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);\n}\n\n.space {\n  width: 100%;\n  height: 100px;\n}\n\n/* Navigation Bar */\nnav {\n  width: 100%;\n  min-height: 72px;\n  position: fixed;\n  top: 0;\n  z-index: 1000;\n  background-color: var(--background-color-01);\n  display: grid;\n  grid-template-columns: 1fr 8fr 1fr;\n  justify-content: space-between;\n  align-items: center;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\nnav .nav-name-container {\n  /* give it a fancy font */\n  margin: 1rem;\n  font-family: \"Playwrite CA\", cursive;\n}\n\nnav .nav-buttons-container {\n  margin: 1rem;\n  justify-self: center;\n  display: flex;\n  justify-content: center;\n  flex-grow: 1;\n  gap: 80px;\n}\n\nnav .nav-buttons-container a {\n  padding: 1rem;\n  cursor: pointer;\n  border-style: none;\n  background-color: var(--background-color-01);\n  font-size: 1.5rem;\n  font-family: var(--font-strong);\n  transition: transform 0.2s;\n  text-decoration: none;\n  color: black;\n}\n\nnav .nav-buttons-container a:hover {\n  transform: translateY(-6px);\n}\n\n/* Home Section  */\n\nsection#section-home {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.headshot,\n.home-details-container {\n  box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -webkit-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n  -moz-box-shadow: 24px 29px 23px 1px rgba(0, 0, 0, 0.63);\n}\n\n.home-main-container {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n}\n\n.home-details-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 400px;\n  height: 560px;\n  background-color: var(--background-color-02);\n  border-radius: 25%;\n  padding: 1rem;\n}\n\n.headshot {\n  width: 400px;\n  border-radius: 25%;\n}\n\n.home-text-container {\n  padding: 0 0 18px 36px;\n}\n\n.home-text-container h1 {\n  font-family: var(--font-strong);\n  font-size: 2.5rem;\n}\n\n.home-buttons-container {\n  margin: 8px 8px;\n  display: flex;\n  gap: 8px;\n}\n\n.home-buttons-container button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\n.home-buttons-container button:hover {\n  transform: translateY(-6px);\n}\n\n.home-web-links-container {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n  align-items: center;\n}\n\n.linkedin-icon {\n}\n\n/* About Section Menu */\n\n.about-menu-container {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n}\n\n.about-menu-container button {\n  font-size: 28px;\n  font-family: var(--font-roboto);\n  border-style: none;\n  padding: 0.5rem;\n  border-right: solid 1px var(--background-color-01);\n  cursor: pointer;\n  transform-origin: bottom;\n  transition: transform ease 0.3s;\n}\n\n.about-menu-container button:hover {\n  transform: scaleY(1.4);\n}\n\n.about-menu-container button:nth-child(1) {\n  background-color: var(--about-color-0);\n}\n\n.about-menu-container button:nth-child(2) {\n  background-color: var(--about-color-1);\n}\n\n.about-menu-container button:nth-child(3) {\n  background-color: var(--about-color-2);\n}\n\n.about-menu-container button:nth-child(4) {\n  background-color: var(--about-color-3);\n}\n\n.about-menu-container button:last-child {\n  border-right: none;\n}\n\n/*About SEction contet */\n\n#section-about {\n  display: flex;\n  justify-content: center;\n}\n\n.about-container {\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  background-color: var(--about-color-0);\n  display: flex;\n  flex-direction: column;\n  max-height: 80%;\n  margin-top: 24px;\n}\n\n.about-info-container {\n  flex: 1;\n  display: flex;\n  padding: 12px;\n  overflow-y: auto;\n}\n\n.about-me-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin: 16px;\n}\n\n.about-me-container-2 {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  width: clamp(45ch, 100%, 75ch);\n  background-color: white;\n  padding: 32px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.about-me-img {\n  height: 500px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.about-me-container h2 {\n  margin-bottom: 0.3rem;\n}\n\n/* Skills Section */\n.skills-container {\n  display: grid;\n  grid-template-rows: repeat(5, 1fr);\n  height: 100%;\n}\n\n.skills-card {\n  flex: 1;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  align-items: center;\n  min-width: 90%;\n  border-bottom: 0.2px solid black;\n  padding: 8px;\n}\n\n.skills-card .column-1 h3 {\n  font-size: 32px;\n  font-family: var(--font-strong);\n  font-weight: lighter;\n}\n\n.skills-card .column-2 {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 24px;\n  flex-wrap: wrap;\n}\n\n.skills-card .column-2 img {\n  width: 54px;\n}\n\n/*  message box */\n.message-box {\n  position: absolute;\n  padding: 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  color: white;\n  border-radius: 5px;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 0.3s ease, transform 0.5s ease;\n  transform: translateY(-10px);\n}\n\n/* Projects Section  */\n#section-projects {\n  margin-top: 5rem;\n  padding-top: 48px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.carousel-container {\n  padding: 24px;\n  width: 350px;\n  height: 200px;\n  position: relative;\n  perspective: 3500px;\n  margin: 0 auto;\n}\n\n.carousel {\n  transform-style: preserve-3d;\n  transition: transform 1s;\n}\n\n/* Project Cards */\n.project-card {\n  display: block;\n  position: absolute;\n  width: 300px;\n  height: 500px;\n  background-color: var(--about-color-0);\n  padding: 16px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n}\n\n.project-card-img-container {\n}\n\n.project-card img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n\n.project-info-title-container {\n  display: grid;\n  grid-template-columns: 4fr 1fr;\n  align-items: center;\n  padding: 6px;\n}\n\n.project-name {\n  font-size: 16px;\n}\n\n.project-name,\n.project-links {\n  padding: 4px;\n}\n\n.project-links {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n\n.project-description {\n  font-size: 13px;\n}\n\n.view-code,\n.view-live {\n  cursor: pointer;\n}\n\n.view-code img,\n.view-live img {\n  width: 20px;\n  overflow: visible;\n}\n\n.carousel-arrows {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.carousel-button {\n  font-size: 4rem;\n  background: none;\n  border: none;\n  color: rgba(255, 255, 255, 0.5);\n  cursor: pointer;\n  background-color: rgba(0, 0, 0, 0.1);\n  border-radius: 0.25rem;\n  padding: 0 0.5rem;\n  padding-bottom: 0.4rem;\n}\n.carousel-button:hover,\n.carousel-button:focus {\n  color: rgba(255, 255, 255, 0.9);\n  background-color: rgba(0, 0, 0, 0.3);\n}\n\n.carousel-button:focus {\n  outline: 1px solid black;\n}\n\n/* Contact Stuff */\n\n#section-contact {\n  height: 50vh;\n}\n\n.contact-main-container {\n  display: flex;\n  background-color: var(--clipped-background-color);\n  padding: 24px;\n  flex-direction: column;\n  gap: 12px;\n  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);\n  align-items: center;\n}\n\n.phone-container,\n.location-container,\n.email-container {\n  display: flex;\n  padding: 12px;\n  align-items: center;\n  gap: 16px;\n}\n\n.phone-container img,\n.location-container img,\n.email-container img {\n  width: 48px;\n}\n\n.back-to-top-button img {\n  width: 16px;\n}\n\nfooter {\n  width: 90%;\n  display: flex;\n  justify-content: space-between;\n  margin: 2rem;\n  align-items: center;\n}\n\nfooter button {\n  background: linear-gradient(90deg, #00c9ff, #92fe9d);\n  border: none;\n  padding: 15px 30px;\n  font-size: 16px;\n  border-radius: 16px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  cursor: pointer;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  outline: none;\n}\n\nfooter button:hover {\n  transform: translateY(-6px);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -875,6 +969,64 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/Carousel.mjs":
+/*!**********************************!*\
+  !*** ./src/modules/Carousel.mjs ***!
+  \**********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Carousel)
+/* harmony export */ });
+/**
+ * This module is responsible for running the card carousel for projects.
+ */
+
+class Carousel {
+  constructor() {
+    this.carousel = $(".carousel");
+    this.currdeg = 0;
+    this.num = 1;
+    this.totalItems = 8;
+
+    $(".next").on("click", { d: "n" }, this.rotate.bind(this));
+    $(".prev").on("click", { d: "p" }, this.rotate.bind(this));
+  }
+
+  rotate(e) {
+    if (e.data.d === "n") {
+      this.currdeg -= 45;
+      this.fadeOutText(this.num);
+      this.num = this.num === this.totalItems ? 1 : this.num + 1;
+      this.fadeInText(this.num);
+    } else if (e.data.d === "p") {
+      this.currdeg += 45;
+      this.fadeOutText(this.num);
+      this.num = this.num === 1 ? this.totalItems : this.num - 1;
+      this.fadeInText(this.num);
+    }
+
+    this.carousel.css({
+      "-webkit-transform": `rotateY(${this.currdeg}deg)`,
+      "-moz-transform": `rotateY(${this.currdeg}deg)`,
+      "-o-transform": `rotateY(${this.currdeg}deg)`,
+      transform: `rotateY(${this.currdeg}deg)`,
+    });
+  }
+
+  fadeOutText(num) {
+    $(`.text${num}`).fadeOut();
+  }
+
+  fadeInText(num) {
+    $(`.text${num}`).fadeIn();
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/modules/HandleAboutMe.mjs":
 /*!***************************************!*\
   !*** ./src/modules/HandleAboutMe.mjs ***!
@@ -949,7 +1101,7 @@ class AboutMe {
     const skillsContainer = document.createElement("div");
     skillsContainer.className = "skills-container";
     skillsContainer.innerHTML = `
-              <div class="skills-container">
+ 
               <div class="skills-card">
                 <div class="column-1">
                   <h3>Web Development:</h3>
@@ -1099,7 +1251,7 @@ class AboutMe {
                   />
                 </div>
               </div>
-            </div>
+
     `;
     return skillsContainer;
   }
@@ -1140,6 +1292,46 @@ class AboutMe {
     });
   }
 }
+
+
+/***/ }),
+
+/***/ "./src/modules/Nav.mjs":
+/*!*****************************!*\
+  !*** ./src/modules/Nav.mjs ***!
+  \*****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   handleNav: () => (/* binding */ handleNav)
+/* harmony export */ });
+/**
+ * This module is responsible for handling the navigation buttons so that when the user clicks on them, they will automatically scroll down to the relavent parts of the page.
+ */
+
+function handleNav() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav-button");
+    const navBarHeight = document.querySelector("nav").offsetHeight;
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        console.log(targetSection);
+
+        window.scrollTo({
+          top: targetSection.offsetTop - navBarHeight,
+          behavior: "smooth",
+        });
+      });
+    });
+  });
+}
+
+
 
 
 /***/ }),
@@ -1240,67 +1432,67 @@ const projects = {
     learned: "",
   },
 
-  Library: {
-    name: "",
-    img: "./assets/screenshots/Library.png",
-    description:
-      "The Library project from The Odin Project involves creating a small web application to manage a collection of books, extending the 'Book' example from a previous lesson. The purpose of this project is to practice object-oriented programming and DOM manipulation by allowing users to add, display, and manage books in a library.",
-    repo: "https://github.com/bergjoel93/library",
-    live: "https://bergjoel93.github.io/library",
-    for: "",
-    learned: "",
-  },
+  // Library: {
+  //   name: "",
+  //   img: "./assets/screenshots/Library.png",
+  //   description:
+  //     "The Library project from The Odin Project involves creating a small web application to manage a collection of books, extending the 'Book' example from a previous lesson. The purpose of this project is to practice object-oriented programming and DOM manipulation by allowing users to add, display, and manage books in a library.",
+  //   repo: "https://github.com/bergjoel93/library",
+  //   live: "https://bergjoel93.github.io/library",
+  //   for: "",
+  //   learned: "",
+  // },
 
-  AdminDashboard: {
-    name: "",
-    img: "./assets/screenshots/AdminDashboard.png",
-    description:
-      "The Admin Dashboard project from The Odin Project focuses on building a full dashboard layout using CSS Grid for the majority of the layout work. The purpose of this project is to apply and solidify knowledge of CSS Grid in a real-world scenario.",
-    repo: "https://github.com/bergjoel93/",
-    live: "https://bergjoel93.github.io/",
-    for: "",
-    learned: "",
-  },
-  SignUpForm: {
-    name: "Sign Up Form",
-    img: "./assets/screenshots/SignUp.png",
-    description:
-      "The Sign-up Form project from The Odin Project is designed to apply and consolidate the HTML and CSS concepts learned in previous lessons by creating a sign-up form for an imaginary service. The purpose of this project is to practice structuring a form, applying external assets, and using advanced CSS techniques for styling. ",
-    repo: "https://github.com/bergjoel93/sign-up-form",
-    live: "https://bergjoel93.github.io/sign-up-form",
-    for: "",
-    learned: "",
-  },
-  Calculator: {
-    name: "Calculator",
-    img: "./assets/screenshots/Calculator.png",
-    description:
-      "The Calculator project from The Odin Project is a comprehensive exercise designed to consolidate the JavaScript, HTML, and CSS skills learned throughout the course. The purpose of this project is to create a functional on-screen calculator that performs basic arithmetic operations. ",
-    repo: "https://github.com/bergjoel93/Calculator",
-    live: "https://bergjoel93.github.io/Calculator",
-    for: "",
-    learned: "",
-  },
-  EtchASketch: {
-    name: "Etch-A-Sketch",
-    img: "./assets/screenshots/EtchaSketch.png",
-    description:
-      "The Etch-a-Sketch project from The Odin Project is a creative exercise designed to strengthen DOM manipulation skills using JavaScript and Flexbox for layout. The purpose of this project is to build a browser-based sketchpad that allows users to draw by hovering over a grid of squares. ",
-    repo: "https://github.com/bergjoel93/odin-project-Etch-a-Sketch",
-    live: "https://bergjoel93.github.io/odin-project-Etch-a-Sketch",
-    for: "",
-    learned: "",
-  },
-  LandingPage: {
-    name: "Landing Page",
-    img: "./assets/screenshots/OdinLandingPage.png",
-    description:
-      "The Landing Page project from The Odin Project involves creating a complete web page based on provided design images, focusing on HTML and CSS skills. The purpose of this project is to practice translating a visual design into a functional web page, honing layout and styling skills.",
-    repo: "https://github.com/bergjoel93/odin-landing-page",
-    live: "https://bergjoel93.github.io/odin-landing-page",
-    for: "",
-    learned: "",
-  },
+  // AdminDashboard: {
+  //   name: "",
+  //   img: "./assets/screenshots/AdminDashboard.png",
+  //   description:
+  //     "The Admin Dashboard project from The Odin Project focuses on building a full dashboard layout using CSS Grid for the majority of the layout work. The purpose of this project is to apply and solidify knowledge of CSS Grid in a real-world scenario.",
+  //   repo: "https://github.com/bergjoel93/",
+  //   live: "https://bergjoel93.github.io/",
+  //   for: "",
+  //   learned: "",
+  // },
+  // SignUpForm: {
+  //   name: "Sign Up Form",
+  //   img: "./assets/screenshots/SignUp.png",
+  //   description:
+  //     "The Sign-up Form project from The Odin Project is designed to apply and consolidate the HTML and CSS concepts learned in previous lessons by creating a sign-up form for an imaginary service. The purpose of this project is to practice structuring a form, applying external assets, and using advanced CSS techniques for styling. ",
+  //   repo: "https://github.com/bergjoel93/sign-up-form",
+  //   live: "https://bergjoel93.github.io/sign-up-form",
+  //   for: "",
+  //   learned: "",
+  // },
+  // Calculator: {
+  //   name: "Calculator",
+  //   img: "./assets/screenshots/Calculator.png",
+  //   description:
+  //     "The Calculator project from The Odin Project is a comprehensive exercise designed to consolidate the JavaScript, HTML, and CSS skills learned throughout the course. The purpose of this project is to create a functional on-screen calculator that performs basic arithmetic operations. ",
+  //   repo: "https://github.com/bergjoel93/Calculator",
+  //   live: "https://bergjoel93.github.io/Calculator",
+  //   for: "",
+  //   learned: "",
+  // },
+  // EtchASketch: {
+  //   name: "Etch-A-Sketch",
+  //   img: "./assets/screenshots/EtchaSketch.png",
+  //   description:
+  //     "The Etch-a-Sketch project from The Odin Project is a creative exercise designed to strengthen DOM manipulation skills using JavaScript and Flexbox for layout. The purpose of this project is to build a browser-based sketchpad that allows users to draw by hovering over a grid of squares. ",
+  //   repo: "https://github.com/bergjoel93/odin-project-Etch-a-Sketch",
+  //   live: "https://bergjoel93.github.io/odin-project-Etch-a-Sketch",
+  //   for: "",
+  //   learned: "",
+  // },
+  // LandingPage: {
+  //   name: "Landing Page",
+  //   img: "./assets/screenshots/OdinLandingPage.png",
+  //   description:
+  //     "The Landing Page project from The Odin Project involves creating a complete web page based on provided design images, focusing on HTML and CSS skills. The purpose of this project is to practice translating a visual design into a functional web page, honing layout and styling skills.",
+  //   repo: "https://github.com/bergjoel93/odin-landing-page",
+  //   live: "https://bergjoel93.github.io/odin-landing-page",
+  //   for: "",
+  //   learned: "",
+  // },
 };
 
 
@@ -1327,20 +1519,33 @@ __webpack_require__.r(__webpack_exports__);
 class RenderProjects {
   constructor() {
     this.projects = _Projects_mjs__WEBPACK_IMPORTED_MODULE_0__.projects;
-    this.cardContainer = document.querySelector(".project-card-container");
+    this.cardContainer = document.querySelector(".carousel");
+    this.colors = [
+      "--carousel-color-0",
+      "--carousel-color-1",
+      "--carousel-color-2",
+      "--carousel-color-3",
+    ];
     this.renderCards();
   }
   // Renders the cards by appending them to the project-card-container
   renderCards() {
+    let degree = 0;
+    let i = 0;
     Object.keys(this.projects).forEach((key) => {
+      if (i > 3) i = 0;
       const project = _Projects_mjs__WEBPACK_IMPORTED_MODULE_0__.projects[key];
-      this.cardContainer.appendChild(this.generateCard(project));
+      this.cardContainer.appendChild(this.generateCard(project, degree, i));
+      degree += 45;
+      i++;
     });
   }
 
-  generateCard(project) {
+  generateCard(project, degree, i) {
     let card = document.createElement("div");
     card.className = "project-card";
+    card.style.backgroundColor = `var(${this.colors[i]})`;
+    card.style.transform = `rotateY(${degree}deg) translateZ(366px)`;
     card.innerHTML = `
         <div class="project-card-img-container">
         <img src="${project.img}" alt="${project.name} Screenshot" class="project-screenshot">
@@ -1350,10 +1555,10 @@ class RenderProjects {
         <div class="project-info-title-container">
             <h3 class="project-name">${project.name}</h3>
             <div class="project-links">
-            <a class="view-code" href="${project.repo}">
+            <a class="view-code" href="${project.repo}"  target="_blank">
                 <img src="./assets/icons/github-142-svgrepo-com.svg" alt="Go to code">
             </a>
-            <a class="view-live" href="${project.live}">
+            <a class="view-live" href="${project.live}"  target="_blank">
                 <img src="./assets/icons/open-in-new-svgrepo-com.svg" alt="Go to live website">
             </a>
             </div>
@@ -1456,6 +1661,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ "./src/styles/style.css");
 /* harmony import */ var _modules_HandleAboutMe_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/HandleAboutMe.mjs */ "./src/modules/HandleAboutMe.mjs");
 /* harmony import */ var _modules_RenderProjects_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/RenderProjects.mjs */ "./src/modules/RenderProjects.mjs");
+/* harmony import */ var _modules_Carousel_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/Carousel.mjs */ "./src/modules/Carousel.mjs");
+/* harmony import */ var _modules_Nav_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/Nav.mjs */ "./src/modules/Nav.mjs");
+
+
 
 
 
@@ -1464,6 +1673,30 @@ __webpack_require__.r(__webpack_exports__);
 // When I click skills, the .about-me-container will clear and then the skills table will be inserted.
 const handleAboutMe = new _modules_HandleAboutMe_mjs__WEBPACK_IMPORTED_MODULE_1__["default"]();
 const renderProjects = new _modules_RenderProjects_mjs__WEBPACK_IMPORTED_MODULE_2__["default"]();
+
+// Carousel
+$(document).ready(function () {
+  const carousel = new _modules_Carousel_mjs__WEBPACK_IMPORTED_MODULE_3__["default"](".carousel", ".next", ".prev");
+});
+
+// Handle navigation menu
+(0,_modules_Nav_mjs__WEBPACK_IMPORTED_MODULE_4__.handleNav)();
+
+// handle resume button
+const resumeBtn = document.querySelector(".download-resume");
+resumeBtn.addEventListener("click", () => {
+  window.open("./assets/resume/Joel-Resume.pdf");
+});
+
+// handle back to top button
+const backToTopBtn = document.querySelector(".back-to-top-button");
+backToTopBtn.addEventListener("click", () => {
+  const home = document.querySelector("#section-home");
+  window.scrollTo({
+    top: home.offsetTop,
+    behavior: "smooth"
+  });
+});
 })();
 
 /******/ })()
