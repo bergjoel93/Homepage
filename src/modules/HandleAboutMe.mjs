@@ -33,12 +33,12 @@ export default class HandleAboutMe {
       this.aboutContainer.style.backgroundColor = "var(--about-color-2)";
     });
 
-    const otherBtn = document.querySelector(".about-other");
-    otherBtn.addEventListener("click", () => {
-      this.aboutInfoContainer.innerHTML = ``;
-      // append stuff
-      this.aboutContainer.style.backgroundColor = "var(--about-color-3)";
-    });
+    // const otherBtn = document.querySelector(".about-other");
+    // otherBtn.addEventListener("click", () => {
+    //   this.aboutInfoContainer.innerHTML = ``;
+    //   // append stuff
+    //   this.aboutContainer.style.backgroundColor = "var(--about-color-3)";
+    // });
   }
   injectAboutMe() {
     const aboutMeContainer = document.createElement("div");

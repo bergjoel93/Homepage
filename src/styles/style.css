@@ -41,7 +41,7 @@ body {
 }
 
 section {
-  height: 100vh;
+  padding: 16px;
   box-sizing: border-box;
   max-width: var(--max-width);
   width: 100%;
@@ -61,16 +61,25 @@ section {
   height: 100px;
 }
 
+@keyframes slideIn {
+  0% {
+    opacity: 0%;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Navigation Bar */
 nav {
   width: 100%;
-  min-height: 72px;
-  position: fixed;
-  top: 0;
+  min-height: 62px;
   z-index: 1000;
   background-color: var(--background-color-01);
   display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
   justify-content: space-between;
   align-items: center;
   box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
@@ -78,14 +87,23 @@ nav {
   -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
 }
 
+nav.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color-01);
+  animation: slideIn 500ms ease-out;
+}
+
 nav .nav-name-container {
-  /* give it a fancy font */
-  margin: 1rem;
+  text-align: center;
+  padding: 12px;
   font-family: "Playwrite CA", cursive;
+  width: 100%;
 }
 
 nav .nav-buttons-container {
-  margin: 1rem;
   justify-self: center;
   display: flex;
   justify-content: center;
@@ -120,7 +138,7 @@ nav .mobile-nav-buttons-container {
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 72px; /* height of the navbar */
+  top: 47px; /* height of the navbar */
   width: 100%;
   background-color: var(--background-color-01);
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
@@ -146,9 +164,8 @@ nav .close-button {
 /* Home Section  */
 
 section#section-home {
+  min-height: 800px;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .headshot,
@@ -161,23 +178,21 @@ section#section-home {
 .home-main-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-details-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 400px;
-  height: 560px;
   background-color: var(--background-color-02);
-  border-radius: 25%;
+  max-height: 450px;
   padding: 1rem;
 }
 
 .headshot {
-  width: 400px;
-  border-radius: 25%;
+  width: 350px;
 }
 
 .home-text-container {
@@ -229,7 +244,7 @@ section#section-home {
 
 .about-menu-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .about-menu-container button {
@@ -279,6 +294,8 @@ section#section-home {
 #section-about {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding-top: 48px;
 }
 
 .about-container {
@@ -288,7 +305,8 @@ section#section-home {
   background-color: var(--about-color-0);
   display: flex;
   flex-direction: column;
-  max-height: 80%;
+  min-height: 700px;
+  min-width: 950px;
   margin-top: 24px;
 }
 
@@ -299,6 +317,7 @@ section#section-home {
 .about-info-container {
   flex: 1;
   display: flex;
+  align-items: center;
   padding: 12px;
 }
 
@@ -317,16 +336,10 @@ section#section-home {
   width: clamp(45ch, 100%, 75ch);
   background-color: white;
   padding: 32px;
-  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
-  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
-  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
 }
 
 .about-me-img {
   height: 500px;
-  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
-  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
-  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
 }
 
 .about-me-container h2 {
@@ -337,6 +350,7 @@ section#section-home {
 .skills-container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
+  padding: 8px;
   height: 100%;
 }
 
@@ -383,6 +397,7 @@ section#section-home {
 
 /* Projects Section  */
 #section-projects {
+  min-height: 800px;
   margin-top: 5rem;
   padding-top: 48px;
   display: flex;
@@ -490,10 +505,20 @@ section#section-home {
   outline: 1px solid black;
 }
 
+.all-projects-button {
+  margin-top: 312px;
+  cursor: pointer;
+}
+
+.all-projects-button a {
+  text-decoration: none;
+  color: black;
+}
+
 /* Contact Stuff */
 
 #section-contact {
-  height: 50vh;
+  height: 75vh;
 }
 
 .contact-main-container {
@@ -563,12 +588,15 @@ footer button:hover {
     height: auto;
   }
   #section-home {
-    margin-top: 120px;
   }
   .home-main-container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .home-details-container {
+    min-height: 575px;
   }
 
   .home-img-container {
@@ -579,8 +607,47 @@ footer button:hover {
     min-height: 850px;
   }
 
+  .about-menu-container {
+  }
+
+  /* .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    padding: 8px;
+  }
+
+  .about-menu-toggle {
+    display: flex;
+    justify-content: end;
+    padding: 12px;
+    width: 100%;
+    font-size: 36px;
+  }
+
+  .menu-pointer {
+    padding-top: 5px;
+  }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 18px solid var(--menu-background-color);
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    position: relative;
+    bottom: 0px;
+    left: 10px;
+  }
+
+  .mobile-menu-container-2 {
+    background-color: var(--about-color-3);
+    width: 100px;
+    border: solid black 1px;
+  } */
+
   .about-container {
-    max-height: none;
+    min-width: auto;
   }
 
   .about-me-container {
@@ -600,7 +667,7 @@ footer button:hover {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 600px) {
   nav {
     display: flex;
   }
@@ -613,10 +680,43 @@ footer button:hover {
     display: block;
   }
 
-  .about-menu-container {
+  .about-menu-container button {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .about-me-container {
+    margin: 0;
+  }
+
+  .about-me-img {
+    height: 400px;
+  }
+
+  .skills-card .column-1 h3 {
+    font-size: 24px;
+  }
+
+  .about-me-container-2 {
+    width: auto;
+    max-width: 350px;
+  }
+
+  .all-projects-button {
+    position: absolute;
+    bottom: 36px;
+  }
+
+  .skills-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  /* .about-menu-container {
     display: none;
     position: relative;
-  }
+  } */
 
   .about-menu-toggle {
     display: block;
