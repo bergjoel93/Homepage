@@ -4,23 +4,9 @@ import RenderProjects from "./modules/RenderProjects.mjs";
 import Carousel from "./modules/Carousel.mjs";
 import { handleNav } from "./modules/Nav.mjs";
 
-// Sticky Nav BAr
-window.addEventListener("scroll", function () {
-  const nav = document.querySelector("nav");
-  const homeSection = document.querySelector("#section-home");
-  const homeSectionHeight = homeSection.offsetHeight;
-
-  if (window.scrollY > homeSectionHeight - 100) {
-    // Adjust the -50 value to trigger earlier
-    nav.classList.add("sticky");
-  } else {
-    nav.classList.remove("sticky");
-  }
-});
-// work on about section.
-// When I click skills, the .about-me-container will clear and then the skills table will be inserted.
 const handleAboutMe = new HandleAboutMe();
 const renderProjects = new RenderProjects();
+handleAboutMe.renderAboutMe();
 
 // Carousel
 $(document).ready(function () {
@@ -34,16 +20,6 @@ handleNav();
 const resumeBtn = document.querySelector(".download-resume");
 resumeBtn.addEventListener("click", () => {
   window.open("./assets/resume/Joel-Resume.pdf");
-});
-
-// handle back to top button
-const backToTopBtn = document.querySelector(".back-to-top-button");
-backToTopBtn.addEventListener("click", () => {
-  const home = document.querySelector("#section-home");
-  window.scrollTo({
-    top: home.offsetTop,
-    behavior: "smooth",
-  });
 });
 
 // // Handle mobile hamburger nav menu

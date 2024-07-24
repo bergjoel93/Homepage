@@ -9,6 +9,11 @@ export default class HandleAboutMe {
     this.handleAboutMe();
   }
 
+  renderAboutMe() {
+    this.aboutInfoContainer.innerHTML = ``;
+    this.aboutInfoContainer.appendChild(this.injectAboutMe());
+  }
+
   handleAboutMe() {
     // Select the about me button
     const aboutMeBtn = document.querySelector(".about-about-me");
@@ -29,8 +34,13 @@ export default class HandleAboutMe {
     const certificatesBtn = document.querySelector(".about-certificates");
     certificatesBtn.addEventListener("click", () => {
       this.aboutInfoContainer.innerHTML = ``;
-      // append the html to above.
+      this.aboutInfoContainer.appendChild(this.injectCertificates());
       this.aboutContainer.style.backgroundColor = "var(--about-color-2)";
+      // handle resume button
+      const softwareCertBtn = document.querySelector(".software-certificate");
+      softwareCertBtn.addEventListener("click", () => {
+        window.open("../assets/resume/softwareDevCert.pdf");
+      });
     });
 
     // const otherBtn = document.querySelector(".about-other");
@@ -40,6 +50,17 @@ export default class HandleAboutMe {
     //   this.aboutContainer.style.backgroundColor = "var(--about-color-3)";
     // });
   }
+
+  injectCertificates() {
+    const certContainer = document.createElement("div");
+    certContainer.className = `cert-container`;
+    certContainer.innerHTML = `
+        <button class="software-certificate"><img src="../assets/screenshots/softwareCert.png" alt="" class="cert-img"></button>
+      `;
+
+    return certContainer;
+  }
+
   injectAboutMe() {
     const aboutMeContainer = document.createElement("div");
     aboutMeContainer.className = "about-me-container";

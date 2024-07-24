@@ -52,6 +52,30 @@ function handleNav() {
       });
     });
   });
+
+  // Sticky Nav BAr
+  window.addEventListener("scroll", function () {
+    const nav = document.querySelector("nav");
+    const homeSection = document.querySelector("#section-home");
+    const homeSectionHeight = homeSection.offsetHeight;
+
+    if (window.scrollY > homeSectionHeight - 100) {
+      // Adjust the -50 value to trigger earlier
+      nav.classList.add("sticky");
+    } else {
+      nav.classList.remove("sticky");
+    }
+  });
+
+  // handle back to top button
+  const backToTopBtn = document.querySelector(".back-to-top-button");
+  backToTopBtn.addEventListener("click", () => {
+    const home = document.querySelector("#section-home");
+    window.scrollTo({
+      top: home.offsetTop,
+      behavior: "smooth",
+    });
+  });
 }
 
 export { handleNav };

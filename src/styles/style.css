@@ -305,7 +305,7 @@ section#section-home {
   background-color: var(--about-color-0);
   display: flex;
   flex-direction: column;
-  min-height: 700px;
+  min-height: 545px;
   min-width: 950px;
   margin-top: 24px;
 }
@@ -316,8 +316,6 @@ section#section-home {
 
 .about-info-container {
   flex: 1;
-  display: flex;
-  align-items: center;
   padding: 12px;
 }
 
@@ -393,6 +391,39 @@ section#section-home {
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.5s ease;
   transform: translateY(-10px);
+}
+
+/* // Certificates Section */
+.cert-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+
+button.software-certificate {
+  width: 250px;
+  height: 200px;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
+    -webkit-box-shadow 0.5s ease-in-out, -moz-box-shadow 0.5s ease-in-out;
+}
+
+button.software-certificate:hover {
+  transform: scale(1.2);
+  box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -webkit-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+  -moz-box-shadow: 7px 9px 5px -2px rgba(74, 74, 74, 0.75);
+}
+
+img.cert-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 /* Projects Section  */
@@ -508,11 +539,16 @@ section#section-home {
 .all-projects-button {
   margin-top: 312px;
   cursor: pointer;
+  transition: transform 0.5s ease-in-out;
 }
 
 .all-projects-button a {
   text-decoration: none;
   color: black;
+}
+
+.all-projects-button:hover {
+  transform: scale(1.3);
 }
 
 /* Contact Stuff */
@@ -664,6 +700,11 @@ footer button:hover {
     bottom: 80px;
     justify-content: center;
     gap: 32px;
+  }
+
+  button.software-certificate {
+    height: 90px;
+    width: 114px;
   }
 }
 
