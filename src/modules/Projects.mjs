@@ -3,6 +3,16 @@
  */
 
 const projects = {
+  CVGenerator: {
+    name: "CV-Generator",
+    img: "./assets/screenshots/CVGenerator.png",
+    description:
+      "The purpose of this project was to create a React App for the first time that uses dynamic forms to generate a personal CV or Resume. This project helped me practice state management and lifting states to parents.",
+    repo: "https://github.com/bergjoel93/CV-Application",
+    live: "https://mellow-marigold-3f0b74.netlify.app/",
+    for: "The Odin Project",
+    learned: "",
+  },
   Battleship: {
     name: "Battleship",
     img: "./assets/screenshots/Battleship.png",
@@ -60,16 +70,6 @@ const projects = {
       "This purpose of this project was to practice using ES6 modules, Classes, and WebPack to create a functional and user-friendly todo list for organizing tasks into projects, setting priorities, and managing deadlines. This one was a doozy but it made me so much better as a programme in the end. ",
     repo: "https://github.com/bergjoel93/Taskr",
     live: "https://bergjoel93.github.io/Taskr",
-    for: "",
-    learned: "",
-  },
-  RestaurantPage: {
-    name: "Restaurant Page",
-    img: "./assets/screenshots/Restaurant.png",
-    description:
-      "This project was my first introduction to diving my code into ES6 modules. This project also used WebPack. The content was injected using JavaScript when the user clicked a menu button. ",
-    repo: "https://github.com/bergjoel93/Restaurant-Page",
-    live: "https://bergjoel93.github.io/Restaurant-Page",
     for: "",
     learned: "",
   },
