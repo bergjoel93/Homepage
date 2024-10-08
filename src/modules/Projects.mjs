@@ -3,6 +3,26 @@
  */
 
 const projects = {
+  ShoppingCart: {
+    name: "Shopping-Cart",
+    img: "./assets/screenshots/ShoppingCart.png",
+    description:
+      "This project is a mock eccommerce site built using React. This project uses React Router to handle client-side routing. This project also helped me practice creating components with state and the Context API for state management.",
+    repo: "https://github.com/bergjoel93/Shopping-Cart",
+    live: "https://shopping-cart-odin-project-775.netlify.app/shop/",
+    for: "The Odin Project",
+    learned: "",
+  },
+  MemoryCart: {
+    name: "Memory-Card",
+    img: "./assets/screenshots/MemoryCard.png",
+    description:
+      "This project is a memory card game built with React. This project introduced me to the useEffect hook and how to deal with side effects. The images and data are from a Bob's Burgers API.",
+    repo: "https://github.com/bergjoel93/Memory-Card",
+    live: "https://verdant-bublanina-4073d8.netlify.app/",
+    for: "The Odin Project",
+    learned: "",
+  },
   CVGenerator: {
     name: "CV-Generator",
     img: "./assets/screenshots/CVGenerator.png",
@@ -53,16 +73,16 @@ const projects = {
     for: "",
     learned: "",
   },
-  DatePractice: {
-    name: "Date Practice",
-    img: "./assets/screenshots/DatePractice.png",
-    description:
-      "This was a personal project to help me practice using JavaScript Date objects. In the previous project, 'To-Do list', I was struggling with dates because of time-zone issues. So I did a quick project to test using timestamps as a way to store dates, which were later parsed into date-strings.",
-    repo: "https://github.com/bergjoel93/Date-Practice",
-    live: "https://bergjoel93.github.io/Date-Practice",
-    for: "",
-    learned: "",
-  },
+  // DatePractice: {
+  //   name: "Date Practice",
+  //   img: "./assets/screenshots/DatePractice.png",
+  //   description:
+  //     "This was a personal project to help me practice using JavaScript Date objects. In the previous project, 'To-Do list', I was struggling with dates because of time-zone issues. So I did a quick project to test using timestamps as a way to store dates, which were later parsed into date-strings.",
+  //   repo: "https://github.com/bergjoel93/Date-Practice",
+  //   live: "https://bergjoel93.github.io/Date-Practice",
+  //   for: "",
+  //   learned: "",
+  // },
   Taskr: {
     name: "To-Do List",
     img: "./assets/screenshots/Taskr.png",
@@ -73,16 +93,16 @@ const projects = {
     for: "",
     learned: "",
   },
-  TicTacToe: {
-    name: "Tic-Tac-Toe",
-    img: "./assets/screenshots/TicTacToe.png",
-    description:
-      " The purpose of this project is to practice organizing code using objects and factories, ensuring minimal global variables and a clean module pattern. By completing this project, I gained experience in structuring JavaScript code to manage game state, player interactions, and game flow control efficiently.",
-    repo: "https://github.com/bergjoel93/Tic_Tac_Toe",
-    live: "https://bergjoel93.github.io/Tic_Tac_Toe",
-    for: "",
-    learned: "",
-  },
+  // TicTacToe: {
+  //   name: "Tic-Tac-Toe",
+  //   img: "./assets/screenshots/TicTacToe.png",
+  //   description:
+  //     " The purpose of this project is to practice organizing code using objects and factories, ensuring minimal global variables and a clean module pattern. By completing this project, I gained experience in structuring JavaScript code to manage game state, player interactions, and game flow control efficiently.",
+  //   repo: "https://github.com/bergjoel93/Tic_Tac_Toe",
+  //   live: "https://bergjoel93.github.io/Tic_Tac_Toe",
+  //   for: "",
+  //   learned: "",
+  // },
 
   // Library: {
   //   name: "",

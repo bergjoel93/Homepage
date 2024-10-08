@@ -98,6 +98,11 @@ export default class HandleAboutMe {
                 </div>
                 <div class="column-2">
                   <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg"
+                    alt="React Logo"
+                    data="React"
+                  />
+                  <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
                     alt="JavaScript logo"
                     data="JavaScript"
@@ -204,11 +209,6 @@ export default class HandleAboutMe {
                   <h4>As of July 10th 2024</h4>
                 </div>
                 <div class="column-2">
-                  <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg"
-                    alt="React Logo"
-                    data="React"
-                  />
   
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
